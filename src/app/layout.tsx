@@ -18,9 +18,10 @@ export default function RootLayout({
 		<html lang="en">
 			<body
 				className={`${plusJakartaSans.className} max-w-[1240px] mx-auto text-neutral`}
+				tabIndex={-1}
 			>
 				<Navbar />
-				{children}
+				<main className="mt-[120px]">{children}</main>
 				<Footer />
 			</body>
 		</html>
