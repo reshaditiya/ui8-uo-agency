@@ -13,7 +13,7 @@ export default function Footer() {
 					<Image src="/logo-text.svg" alt="UO Agency Logo" fill />
 				</div>
 				<div className="max-w-[25rem] font-bold text-lg md:text-xl text-center md:text-left">
-					Get in touch.
+					Get in touch.{" "}
 					<span className="text-black-50">Let’s work together.</span>
 				</div>
 			</div>
