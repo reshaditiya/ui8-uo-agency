@@ -18,9 +18,7 @@ export default function RootLayout({
 		<html lang="en">
 			<body className={`${plusJakartaSans.className} text-neutral`}>
 				<Navbar />
-				<main className="max-w-[1240px] mx-auto mt-[120px]">
-					{children}
-				</main>
+				<main className="max-w-7xl mx-auto mt-[120px]">{children}</main>
 				<Footer />
 			</body>
 		</html>
