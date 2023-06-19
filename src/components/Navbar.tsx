@@ -216,7 +216,7 @@ export default function Navbar() {
 					{pathname === "/contact" ? (
 						<motion.div
 							key="close-contact"
-							className="hidden md:block font-semibold underline text-blue hover:text-blue-70 active:text-blue-50 cursor-pointer select-none"
+							className="hidden md:block font-semibold underline text-blue-100 hover:text-blue-70 active:text-blue-50 cursor-pointer select-none"
 							variants={animateNavLink}
 							initial="initial"
 							animate="animate"
@@ -243,7 +243,7 @@ export default function Navbar() {
 					{pathname === "/contact" ? (
 						<motion.span
 							key="close_link"
-							className="md:hidden text-sm font-semibold underline text-blue hover:text-blue-70 active:text-blue-50 cursor-pointer select-none"
+							className="md:hidden text-sm font-semibold underline text-blue-100 hover:text-blue-70 active:text-blue-50 cursor-pointer select-none"
 							variants={animateNavLink}
 							initial="initial"
 							animate="animate"
