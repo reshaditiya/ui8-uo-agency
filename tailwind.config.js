@@ -37,15 +37,5 @@ module.exports = {
 				100: "#1777f7",
 			},
 		},
-		fontSize: {
-			sm: "0.875rem", //14
-			base: "1rem", //16
-			lg: "1.5rem", //24
-			xl: "2.5rem", //40
-			"2xl": "3rem", //48
-			"3xl": "3.5rem", //56
-			"4xl": "4rem", //64
-			"5xl": "4.5rem", //72
-		},
 	},
 }
