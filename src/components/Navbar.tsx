@@ -137,7 +137,7 @@ export default function Navbar() {
 	}, [pathname])
 
 	return (
-		<nav className="fixed top-0 bg-white w-full">
+		<nav className="fixed top-0 left-0 bg-white w-full">
 			<div className="flex justify-between items-center px-6 py-10 md:py-4">
 				{/* logo */}
 				<Link
@@ -197,15 +197,12 @@ export default function Navbar() {
 								opacity: 0,
 								y: -4,
 							}}
+							className="md:hidden text-sm font-semibold underline text-primary hover:text-primary/70 active:text-primary/50 cursor-pointer select-none"
 							animate={{ opacity: 1, y: 0 }}
 							exit={{ opacity: 0, y: -4 }}
 							transition={{ type: "string", duration: 0.2 }}
 						>
-							<Link
-								key="contact"
-								href="/"
-								className="md:hidden text-sm font-semibold underline text-primary hover:text-primary/70 active:text-primary/50 cursor-pointer select-none"
-							>
+							<Link key="contact" href="/">
 								Close
 							</Link>
 						</motion.span>
