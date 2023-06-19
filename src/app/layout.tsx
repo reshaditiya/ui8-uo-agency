@@ -16,9 +16,11 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className={`${plusJakartaSans.className} text-neutral`}>
+			<body className={`${plusJakartaSans.className} text-black-100`}>
 				<Navbar />
-				<main className="max-w-7xl mx-auto mt-[120px]">{children}</main>
+				<main className="max-w-[77.5rem] mx-auto mt-[7.5rem] md:[6rem]">
+					{children}
+				</main>
 				<Footer />
 			</body>
 		</html>

@@ -42,7 +42,7 @@ function Drawer({ handleClose }: DrawerProps) {
 		<>
 			{/* menu */}
 			<motion.ul
-				className="absolute left-0 right-0 flex flex-col md:hidden bg-white pb-4 z-10"
+				className="absolute left-0 right-0 flex flex-col md:hidden bg-white pb-[2rem] z-10"
 				variants={animateNav}
 				initial="initial"
 				animate="animate"
@@ -50,7 +50,7 @@ function Drawer({ handleClose }: DrawerProps) {
 			>
 				{routes.map((route) => {
 					const isActive = pathname === route.route
-					const navItemClass = `flex justify-center items-center text-sm py-3.5 hover:bg-black-10 active:bg-black-30 cursor-pointer select-none ${
+					const navItemClass = `flex justify-center items-center py-[0.88rem] hover:bg-black-10 active:bg-black-30 cursor-pointer select-none ${
 						isActive ? "font-bold" : "font-medium"
 					}`
 
@@ -71,7 +71,7 @@ function Drawer({ handleClose }: DrawerProps) {
 				<li key={"/contact"}>
 					<Link
 						href={"/contact"}
-						className="flex justify-center items-center text-sm py-3.5 font-semibold underline hover:bg-black-10 active:bg-black-30 cursor-pointer select-none"
+						className="flex justify-center items-center py-[0.88rem] font-semibold underline hover:bg-black-10 active:bg-black-30 cursor-pointer select-none"
 					>
 						Get in touch
 					</Link>
@@ -163,12 +163,12 @@ export default function Navbar() {
 	}, [pathname])
 
 	return (
-		<nav className=" w-full fixed top-0 bg-white z-10">
-			<div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-10 md:py-4">
+		<nav className="w-full max-w-[77.5rem] left-1/2 -translate-x-1/2 fixed top-0 bg-white z-10">
+			<div className="flex justify-between items-center py-[2.5rem] md:py-[1rem] px-[1.5rem]">
 				{/* logo */}
 				<AnimatePresence>
 					<motion.div
-						className="relative h-10 w-[9.06rem] md:h-16 md:w-[13.31rem] select-none"
+						className="relative h-[2.5rem] w-[9.06rem] md:h-[4rem] md:w-[13.31rem] select-none"
 						variants={animateNavLink}
 						initial="initial"
 						animate="animate"
@@ -243,7 +243,7 @@ export default function Navbar() {
 					{pathname === "/contact" ? (
 						<motion.span
 							key="close_link"
-							className="md:hidden text-sm font-semibold underline text-blue-100 hover:text-blue-70 active:text-blue-50 cursor-pointer select-none"
+							className="md:hidden font-semibold underline text-blue-100 hover:text-blue-70 active:text-blue-50 cursor-pointer select-none"
 							variants={animateNavLink}
 							initial="initial"
 							animate="animate"
