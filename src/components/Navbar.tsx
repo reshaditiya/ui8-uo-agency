@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { useEffect, useReducer } from "react"
+import { useEffect, useReducer, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
 interface Route {
@@ -105,6 +105,8 @@ export default function Navbar() {
 		}
 	}
 	const [isNavOpen, navDispatch] = useReducer(navReducer, false)
+
+	// animation
 	const animateIcon = {
 		initial: {
 			opacity: 0,
@@ -131,7 +133,31 @@ export default function Navbar() {
 			},
 		},
 	}
+	const animateNavLink = {
+		initial: {
+			opacity: 0,
+			transition: {
+				type: "spring",
+				duration: 0.2,
+			},
+		},
+		animate: {
+			opacity: 1,
+			transition: {
+				type: "spring",
+				duration: 0.2,
+			},
+		},
+		exit: {
+			opacity: 0,
+			transition: {
+				type: "spring",
+				duration: 0.2,
+			},
+		},
+	}
 
+	// close modal when route change
 	useEffect(() => {
 		navDispatch("close")
 	}, [pathname])
@@ -151,56 +177,68 @@ export default function Navbar() {
 					/>
 				</Link>
 				{/* desktop main menu */}
-				{pathname !== "/contact" && (
-					<div className="hidden md:flex gap-[4.5rem]">
-						{routes.map((route) => {
-							const isActive = pathname === route.route
-							return (
-								<Link
-									key={route.route}
-									href={route.route}
-									className={`font-medium hover:text-neutral/70 active:text-neutral/50 cursor-pointer select-none ${
-										isActive && "font-bold"
-									}`}
-								>
-									{route.name}
-								</Link>
-							)
-						})}
-					</div>
-				)}
-				{/* desktop contact */}
-				{pathname === "/contact" ? (
-					<Link
-						key="contact"
-						href="/"
-						className="hidden md:block font-semibold underline text-primary hover:text-primary/70 active:text-primary/50 cursor-pointer select-none"
-					>
-						Close
-					</Link>
-				) : (
-					<Link
-						key="contact"
-						href="/contact"
-						className="hidden md:block font-semibold underline hover:text-neutral/70 active:text-neutral/50 cursor-pointer select-none"
-					>
-						Get in touch
-					</Link>
-				)}
+				<AnimatePresence mode="wait">
+					{pathname !== "/contact" && (
+						<motion.div
+							key="main-menu"
+							className="hidden md:flex gap-[4.5rem]"
+							variants={animateNavLink}
+							initial="initial"
+							animate="animate"
+							exit="exit"
+						>
+							{routes.map((route) => {
+								const isActive = pathname === route.route
+								return (
+									<Link
+										key={route.route}
+										href={route.route}
+										className={`font-medium hover:text-neutral/70 active:text-neutral/50 cursor-pointer select-none ${
+											isActive && "font-bold"
+										}`}
+									>
+										{route.name}
+									</Link>
+								)
+							})}
+						</motion.div>
+					)}
+					{/* desktop contact */}
+					{pathname === "/contact" ? (
+						<motion.div
+							key="close-contact"
+							className="hidden md:block font-semibold underline text-primary hover:text-primary/70 active:text-primary/50 cursor-pointer select-none"
+							variants={animateNavLink}
+							initial="initial"
+							animate="animate"
+							exit="exit"
+						>
+							<Link href="/">Close</Link>
+						</motion.div>
+					) : (
+						<motion.div
+							key="contact"
+							className="hidden md:block font-semibold underline hover:text-neutral/70 active:text-neutral/50 cursor-pointer select-none"
+							variants={animateNavLink}
+							initial="initial"
+							animate="animate"
+							exit="exit"
+						>
+							<Link href="/contact">Get in touch</Link>
+						</motion.div>
+					)}
+				</AnimatePresence>
 
 				{/* mobile hamburger or close */}
 				<AnimatePresence mode="wait">
 					{pathname === "/contact" ? (
 						<motion.span
 							key="close_link"
-							initial={{
-								opacity: 0,
-								y: -4,
-							}}
 							className="md:hidden text-sm font-semibold underline text-primary hover:text-primary/70 active:text-primary/50 cursor-pointer select-none"
-							animate={{ opacity: 1, y: 0 }}
-							exit={{ opacity: 0, y: -4 }}
-							transition={{ type: "string", duration: 0.2 }}
+							variants={animateNavLink}
+							initial="initial"
+							animate="animate"
+							exit="exit"
 						>
 							<Link key="contact" href="/">
 								Close
