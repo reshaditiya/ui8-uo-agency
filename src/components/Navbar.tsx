@@ -166,16 +166,23 @@ export default function Navbar() {
 		<nav className="fixed top-0 left-0 bg-white w-full">
 			<div className="flex justify-between items-center px-6 py-10 md:py-4">
 				{/* logo */}
-				<Link
-					href="/"
-					className="relative h-[40px] w-[145px] md:h-[64px] md:w-[213px] select-none"
-				>
-					<Image
-						src="/logo-text.svg"
-						alt="UO Agency Logo"
-						fill={true}
-					/>
-				</Link>
+				<AnimatePresence>
+					<motion.div
+						className="relative h-[40px] w-[145px] md:h-[64px] md:w-[213px] select-none"
+						variants={animateNavLink}
+						initial="initial"
+						animate="animate"
+						exit="exit"
+					>
+						<Link href="/">
+							<Image
+								src="/logo-text.svg"
+								alt="UO Agency Logo"
+								fill={true}
+							/>
+						</Link>
+					</motion.div>
+				</AnimatePresence>
 				{/* desktop main menu */}
 				<AnimatePresence mode="wait">
 					{pathname !== "/contact" && (
@@ -193,8 +200,10 @@ export default function Navbar() {
 									<Link
 										key={route.route}
 										href={route.route}
-										className={`font-medium hover:text-neutral/70 active:text-neutral/50 cursor-pointer select-none ${
-											isActive && "font-bold"
+										className={`hover:text-neutral/70 active:text-neutral/50 cursor-pointer select-none ${
+											isActive
+												? "font-bold"
+												: "font-medium"
 										}`}
 									>
 										{route.name}
