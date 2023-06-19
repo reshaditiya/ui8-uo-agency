@@ -42,7 +42,7 @@ function Drawer({ handleClose }: DrawerProps) {
 		<>
 			{/* menu */}
 			<motion.ul
-				className="absolute left-0 right-0 flex flex-col md:hidden bg-white z-10 pb-4"
+				className="absolute left-0 right-0 flex flex-col md:hidden bg-white pb-4"
 				variants={animateNav}
 				initial="initial"
 				animate="animate"
@@ -163,7 +163,7 @@ export default function Navbar() {
 	}, [pathname])
 
 	return (
-		<nav className="fixed top-0 left-0 bg-white w-full">
+		<nav className="max-w-[1240px] mx-auto fixed top-0 bg-white w-full z-10">
 			<div className="flex justify-between items-center px-6 py-10 md:py-4">
 				{/* logo */}
 				<AnimatePresence>
