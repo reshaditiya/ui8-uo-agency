@@ -42,7 +42,7 @@ function Drawer({ handleClose }: DrawerProps) {
 		<>
 			{/* menu */}
 			<motion.ul
-				className="absolute left-0 right-0 flex flex-col md:hidden bg-white pb-4"
+				className="absolute left-0 right-0 flex flex-col md:hidden bg-white pb-4 z-10"
 				variants={animateNav}
 				initial="initial"
 				animate="animate"
@@ -50,7 +50,7 @@ function Drawer({ handleClose }: DrawerProps) {
 			>
 				{routes.map((route) => {
 					const isActive = pathname === route.route
-					const navItemClass = `flex justify-center items-center text-sm py-3.5 hover:bg-neutral/10 active:bg-neutral/20 cursor-pointer select-none ${
+					const navItemClass = `flex justify-center items-center text-sm py-3.5 hover:bg-black-10 active:bg-black-30 cursor-pointer select-none ${
 						isActive ? "font-bold" : "font-medium"
 					}`
 
@@ -71,7 +71,7 @@ function Drawer({ handleClose }: DrawerProps) {
 				<li key={"/contact"}>
 					<Link
 						href={"/contact"}
-						className="flex justify-center items-center text-sm py-3.5 font-semibold underline hover:bg-neutral/10 active:bg-neutral/20 cursor-pointer select-none"
+						className="flex justify-center items-center text-sm py-3.5 font-semibold underline hover:bg-black-10 active:bg-black-30 cursor-pointer select-none"
 					>
 						Get in touch
 					</Link>
@@ -80,7 +80,7 @@ function Drawer({ handleClose }: DrawerProps) {
 
 			{/* backdrop */}
 			<motion.div
-				className="fixed w-full h-screen bg-neutral/20"
+				className="fixed w-full h-screen bg-black-100/20"
 				onClick={handleClose}
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1 }}
@@ -164,11 +164,11 @@ export default function Navbar() {
 
 	return (
 		<nav className=" w-full fixed top-0 bg-white z-10">
-			<div className="max-w-[1240px] mx-auto flex justify-between items-center px-6 py-10 md:py-4">
+			<div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-10 md:py-4">
 				{/* logo */}
 				<AnimatePresence>
 					<motion.div
-						className="relative h-[40px] w-[145px] md:h-[64px] md:w-[213px] select-none"
+						className="relative h-10 w-[9.06rem] md:h-16 md:w-[13.31rem] select-none"
 						variants={animateNavLink}
 						initial="initial"
 						animate="animate"
@@ -200,7 +200,7 @@ export default function Navbar() {
 									<Link
 										key={route.route}
 										href={route.route}
-										className={`hover:text-neutral/70 active:text-neutral/50 cursor-pointer select-none ${
+										className={`hover:text-black-70 active:text-black-50 cursor-pointer select-none ${
 											isActive
 												? "font-bold"
 												: "font-medium"
@@ -216,7 +216,7 @@ export default function Navbar() {
 					{pathname === "/contact" ? (
 						<motion.div
 							key="close-contact"
-							className="hidden md:block font-semibold underline text-primary hover:text-primary/70 active:text-primary/50 cursor-pointer select-none"
+							className="hidden md:block font-semibold underline text-blue hover:text-blue-70 active:text-blue-50 cursor-pointer select-none"
 							variants={animateNavLink}
 							initial="initial"
 							animate="animate"
@@ -227,7 +227,7 @@ export default function Navbar() {
 					) : (
 						<motion.div
 							key="contact"
-							className="hidden md:block font-semibold underline hover:text-neutral/70 active:text-neutral/50 cursor-pointer select-none"
+							className="hidden md:block font-semibold underline hover:text-black-70 active:text-black-50 cursor-pointer select-none"
 							variants={animateNavLink}
 							initial="initial"
 							animate="animate"
@@ -243,7 +243,7 @@ export default function Navbar() {
 					{pathname === "/contact" ? (
 						<motion.span
 							key="close_link"
-							className="md:hidden text-sm font-semibold underline text-primary hover:text-primary/70 active:text-primary/50 cursor-pointer select-none"
+							className="md:hidden text-sm font-semibold underline text-blue hover:text-blue-70 active:text-blue-50 cursor-pointer select-none"
 							variants={animateNavLink}
 							initial="initial"
 							animate="animate"
