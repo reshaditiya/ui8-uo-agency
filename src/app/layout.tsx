@@ -16,12 +16,11 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body
-				className={`${plusJakartaSans.className} max-w-[1240px] mx-auto text-neutral`}
-				tabIndex={-1}
-			>
+			<body className={`${plusJakartaSans.className} text-neutral`}>
 				<Navbar />
-				<main className="mt-[120px]">{children}</main>
+				<main className="max-w-[1240px] mx-auto mt-[120px]">
+					{children}
+				</main>
 				<Footer />
 			</body>
 		</html>
