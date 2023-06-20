@@ -63,7 +63,9 @@ function Drawer({ handleClose }: DrawerProps) {
 						<Link
 							key={route.route}
 							href={route.route}
-							className={navItemClass}
+							className={`flex cursor-pointer select-none items-center justify-center py-[0.88rem] transition-all hover:bg-black-10 active:bg-black-30 ${
+								isActive ? "font-bold" : "font-medium"
+							}`}
 						>
 							{route.name}
 						</Link>
