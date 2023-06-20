@@ -38,5 +38,6 @@ module.exports = {
 				100: "#1777f7",
 			},
 		},
+		fontSize: {},
 	},
 }
