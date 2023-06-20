@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+	.text-h1 {
+		@apply text-[2rem] md:text-[4.5rem] font-bold;
+	}
+	.text-h2 {
+		@apply text-[1.5rem] md:text-[4rem] font-bold;
+	}
+	.text-sm {
+		@apply text-[0.88rem] md:text-[1rem];
+	}
+	.text-body {
+		@apply text-[1rem] md:text-[1.5rem];
+	}
+}
