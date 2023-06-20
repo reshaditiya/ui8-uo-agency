@@ -1,5 +1,6 @@
 import Image from "next/image"
 import works from "./data/works"
+import Link from "next/link"
 
 type CollaborateCompanies = {
 	name: string
@@ -179,9 +180,12 @@ export default function Home() {
 			<section className="mx-auto max-w-[77.5rem] px-[1.5rem]">
 				<div className="md:flex md:items-end md:justify-between">
 					<h2 className="text-h3">Recent Works</h2>
-					<span className="text-sm hidden text-blue-100 underline md:inline">
+					<Link
+						href="/works"
+						className="text-sm w-fill mt-[2.5rem] hidden items-center justify-center font-semibold text-blue-100 underline hover:text-blue-90 active:text-blue-70 md:inline"
+					>
 						View More
-					</span>
+					</Link>
 				</div>
 
 				{/* works list */}
@@ -209,9 +213,12 @@ export default function Home() {
 					))}
 				</div>
 
-				<span className="text-sm w-fill mx-auto mt-[2.5rem] flex items-center justify-center font-semibold text-blue-100 underline md:hidden">
+				<Link
+					href="/works"
+					className="text-sm w-fill mx-auto mt-[2.5rem] flex items-center justify-center font-semibold text-blue-100 underline hover:text-blue-90 active:text-blue-70 md:hidden"
+				>
 					View More
-				</span>
+				</Link>
 			</section>
 
 			{/* we deliver section */}
