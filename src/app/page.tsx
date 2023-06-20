@@ -92,7 +92,7 @@ export default function Home() {
 			</section>
 
 			{/* we are passionate section */}
-			<section className="mt-[2.56rem] bg-light-gray md:mt-[0.5rem]">
+			<section className="mt-[2.56rem] md:mt-[0.5rem]">
 				<div className="mx-auto flex max-w-[77.5rem] flex-col gap-[1.5rem] px-[1.5rem] py-[2.5rem] md:flex-row md:py-[4.5rem]">
 					<h2 className="text-h2 flex-1">We are passionate.</h2>
 					<p className="text-body flex-1 text-black-50">
@@ -188,10 +188,13 @@ export default function Home() {
 				</div>
 
 				{/* works list */}
-				<div className="">
+				<div className=" md:no-scrollbar mt-[1.5rem] flex flex-col gap-[1.5rem] md:flex-row md:overflow-x-auto">
 					{works.map((work) => (
-						<div key={work.name} className="flex flex-col">
-							<figure className="w-fill relative h-[15.63rem]">
+						<div
+							key={work.name}
+							className="flex flex-col gap-[1rem]"
+						>
+							<figure className="w-fill relative h-[13.5rem] md:h-[15.63rem] md:w-[23.75rem]">
 								<Image
 									src={work.imageSrc}
 									alt={work.name}
@@ -208,6 +211,10 @@ export default function Home() {
 						</div>
 					))}
 				</div>
+
+				<span className="text-sm w-fill mx-auto mt-[2.5rem] flex items-center justify-center font-semibold text-blue-100 underline md:hidden">
+					View More
+				</span>
 			</section>
 		</>
 	)
