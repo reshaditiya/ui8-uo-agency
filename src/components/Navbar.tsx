@@ -170,7 +170,7 @@ export default function Navbar() {
 			<div className="mx-auto flex max-w-[77.5rem] items-center justify-between px-[1.5rem] py-[2.5rem] md:py-[1rem]">
 				{/* logo */}
 				<AnimatePresence>
-					<motion.div
+					<motion.figure
 						className="relative h-[2.5rem] w-[9.06rem] select-none md:h-[4rem] md:w-[13.31rem]"
 						variants={animateNavLink}
 						initial="initial"
@@ -184,7 +184,7 @@ export default function Navbar() {
 								fill={true}
 							/>
 						</Link>
-					</motion.div>
+					</motion.figure>
 				</AnimatePresence>
 				{/* desktop main menu */}
 				<AnimatePresence mode="wait">

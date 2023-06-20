@@ -59,14 +59,14 @@ export default function Home() {
 						Prelasa esm, kropp sytes.
 					</span>
 				</div>
-				<div className="w-fill relative mt-[4.63rem] h-[27.44rem] md:mt-[4.19rem] md:h-[39.25rem]">
+				<figure className="w-fill relative mt-[4.63rem] h-[27.44rem] md:mt-[4.19rem] md:h-[39.25rem]">
 					<Image
 						src="/images/team1.webp"
 						alt="Our Team"
 						fill
 						className="object-cover"
 					/>
-				</div>
+				</figure>
 			</section>
 
 			{/* company collaboration section */}
@@ -81,12 +81,12 @@ export default function Home() {
 				{/* companies logo */}
 				<div className="flex flex-wrap justify-center">
 					{collaborateCompanies.map((company) => (
-						<div
+						<figure
 							key={company.src}
 							className="relative h-[4rem] w-[8.63rem] md:h-[5rem] md:w-[15rem]"
 						>
 							<Image src={company.src} alt={company.name} fill />
-						</div>
+						</figure>
 					))}
 				</div>
 			</section>
@@ -179,14 +179,34 @@ export default function Home() {
 			</section>
 
 			{/* recent works section */}
-			<section>
+			<section className="mx-auto max-w-[77.5rem] px-[1.5rem]">
 				<div className="md:flex md:items-end md:justify-between">
 					<h2 className="text-h3">Recent Works</h2>
 					<span className="text-sm hidden text-blue-100 underline md:inline">
 						View More
 					</span>
+				</div>
 
-					{/* works list */}
+				{/* works list */}
+				<div className="">
+					{works.map((work) => (
+						<div key={work.name} className="flex flex-col">
+							<figure className="w-fill relative h-[15.63rem]">
+								<Image
+									src={work.imageSrc}
+									alt={work.name}
+									fill
+									className="object-cover"
+								/>
+							</figure>
+							<p className="text-body text-black-70">
+								<span className="font-bold">
+									{work.name + "."}
+								</span>
+								{work.shortDesc}
+							</p>
+						</div>
+					))}
 				</div>
 			</section>
 		</>
