@@ -53,7 +53,7 @@ function Drawer({ handleClose }: DrawerProps) {
 					return isActive ? (
 						<button
 							key={route.route}
-							className={`flex cursor-pointer select-none items-center justify-center py-[0.88rem] transition-all hover:bg-black-10 active:bg-black-30 ${
+							className={`text-sm flex cursor-pointer select-none items-center justify-center py-[0.88rem] transition-all hover:bg-black-10 active:bg-black-30 ${
 								isActive ? "font-bold" : "font-medium"
 							}`}
 						>
@@ -63,7 +63,7 @@ function Drawer({ handleClose }: DrawerProps) {
 						<Link
 							key={route.route}
 							href={route.route}
-							className={`flex cursor-pointer select-none items-center justify-center py-[0.88rem] transition-all hover:bg-black-10 active:bg-black-30 ${
+							className={`text-sm flex cursor-pointer select-none items-center justify-center py-[0.88rem] transition-all hover:bg-black-10 active:bg-black-30 ${
 								isActive ? "font-bold" : "font-medium"
 							}`}
 						>
@@ -74,7 +74,7 @@ function Drawer({ handleClose }: DrawerProps) {
 				<li key={"/contact"}>
 					<Link
 						href={"/contact"}
-						className="flex cursor-pointer select-none items-center justify-center py-[0.88rem] font-semibold underline hover:bg-black-10 active:bg-black-30"
+						className="text-sm flex cursor-pointer select-none items-center justify-center py-[0.88rem] font-semibold underline hover:bg-black-10 active:bg-black-30"
 					>
 						Get in touch
 					</Link>
@@ -203,7 +203,7 @@ export default function Navbar() {
 									<Link
 										key={route.route}
 										href={route.route}
-										className={`cursor-pointer select-none hover:text-black-70 active:text-black-50 ${
+										className={`text-sm cursor-pointer select-none hover:text-black-70 active:text-black-50 ${
 											isActive
 												? "font-bold"
 												: "font-medium"
@@ -219,7 +219,7 @@ export default function Navbar() {
 					{pathname === "/contact" ? (
 						<motion.div
 							key="close-contact"
-							className="hidden cursor-pointer select-none font-semibold text-blue-100 underline hover:text-blue-70 active:text-blue-50 md:block"
+							className="text-sm hidden cursor-pointer select-none font-semibold text-blue-100 underline hover:text-blue-70 active:text-blue-50 md:block"
 							variants={animateNavLink}
 							initial="initial"
 							animate="animate"
@@ -230,7 +230,7 @@ export default function Navbar() {
 					) : (
 						<motion.div
 							key="contact"
-							className="hidden cursor-pointer select-none font-semibold underline hover:text-black-70 active:text-black-50 md:block"
+							className="text-sm hidden cursor-pointer select-none font-semibold underline hover:text-black-70 active:text-black-50 md:block"
 							variants={animateNavLink}
 							initial="initial"
 							animate="animate"
@@ -246,7 +246,7 @@ export default function Navbar() {
 					{pathname === "/contact" ? (
 						<motion.span
 							key="close_link"
-							className="cursor-pointer select-none font-semibold text-blue-100 underline hover:text-blue-70 active:text-blue-50 md:hidden"
+							className="text-sm cursor-pointer select-none font-semibold text-blue-100 underline hover:text-blue-70 active:text-blue-50 md:hidden"
 							variants={animateNavLink}
 							initial="initial"
 							animate="animate"
