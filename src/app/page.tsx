@@ -1,16 +1,16 @@
 import Image from "next/image"
 
-interface collaborateCompanies {
+type CollaborateCompanies = {
 	name: string
 	src: string
 }
 
-interface ourServices {
+type OurServices = {
 	name: string
 	desc: string
 }
 
-const collaborateCompanies: collaborateCompanies[] = [
+const collaborateCompanies: CollaborateCompanies[] = [
 	{ name: "Alitalia", src: "/companies-logo/alitalia.svg" },
 	{ name: "Bally", src: "/companies-logo/bally.svg" },
 	{ name: "Aware", src: "/companies-logo/aware.svg" },
@@ -18,7 +18,7 @@ const collaborateCompanies: collaborateCompanies[] = [
 	{ name: "Vidkron", src: "/companies-logo/vidkron.svg" },
 ]
 
-const ourServices: ourServices[] = [
+const ourServices: OurServices[] = [
 	{
 		name: "UIUX Design",
 		desc: "Lörem ipsum metavalens krisväska. Läsade infras. Uling vipp och gagyrtad. Donde beföskade polyamori är.",

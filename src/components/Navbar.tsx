@@ -6,12 +6,12 @@ import { usePathname } from "next/navigation"
 import { useEffect, useReducer, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
-interface Route {
+type Route = {
 	name: string
 	route: string
 }
 
-interface DrawerProps {
+type DrawerProps = {
 	handleClose: () => void
 }
 
