@@ -25,3 +25,13 @@
 		@apply text-sm rounded-full bg-black-50 px-[1.75rem] py-[0.88rem] text-white transition-all hover:bg-black-30 active:bg-black-10 md:px-[2rem] md:py-[1rem];
 	}
 }
+
+@layer utilities {
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+	.no-scrollbar {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+}
