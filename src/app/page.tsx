@@ -19,7 +19,7 @@ export default function Home() {
 					<div className="absolute rounded-full border border-black-50 right-0 bottom-[-1.5rem] h-[1rem] w-[2.5rem] md:h-[1.9rem] md:w-[4.06rem]" />
 					{/* end decoration */}
 
-					<h1 className="text-h1 font-bold max-w-[64.31rem]">
+					<h1 className="text-h1 max-w-[64.31rem]">
 						We are a{" "}
 						<span className="text-blue-100">digital agency</span>{" "}
 						that will save your life.
