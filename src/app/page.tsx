@@ -1,4 +1,5 @@
 import Image from "next/image"
+import works from "./data/works"
 
 type CollaborateCompanies = {
 	name: string
@@ -46,7 +47,6 @@ export default function Home() {
 					{/* derocation */}
 					<div className="absolute left-0 top-[-1.5rem] h-[1.2rem] w-[3.13rem] rounded-full border border-black-50 md:top-[-4rem] md:h-[3rem] md:w-[7.75rem]" />
 					<div className="absolute bottom-[-1.5rem] right-0 h-[1rem] w-[2.5rem] rounded-full border border-black-50 md:h-[1.9rem] md:w-[4.06rem]" />
-					{/* end decoration */}
 
 					<h1 className="text-h1 max-w-[64.31rem]">
 						We are a{" "}
@@ -77,6 +77,8 @@ export default function Home() {
 						250+ leading companies-logo
 					</span>
 				</p>
+
+				{/* companies logo */}
 				<div className="flex flex-wrap justify-center">
 					{collaborateCompanies.map((company) => (
 						<div
@@ -115,7 +117,6 @@ export default function Home() {
 
 			{/* services section */}
 			<section className="mx-auto mt-[1.5rem] max-w-[77.5rem] px-[1.5rem] py-[2rem] md:mt-[0.5rem] md:py-[3.75rem]">
-				{/* quote */}
 				<div className="flex flex-col items-start gap-[2rem] md:flex-row md:items-center md:justify-between md:gap-[1.5rem]">
 					<div className="flex max-w-[39.38rem] flex-1 flex-col gap-[1rem] md:gap-[1.5rem]">
 						<h2 className="text-h2">
@@ -175,6 +176,18 @@ export default function Home() {
 						</svg>
 					</div>
 				))}
+			</section>
+
+			{/* recent works section */}
+			<section>
+				<div className="md:flex md:items-end md:justify-between">
+					<h2 className="text-h3">Recent Works</h2>
+					<span className="text-sm hidden text-blue-100 underline md:inline">
+						View More
+					</span>
+
+					{/* works list */}
+				</div>
 			</section>
 		</>
 	)
