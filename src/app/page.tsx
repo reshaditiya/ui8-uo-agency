@@ -92,27 +92,24 @@ export default function Home() {
 			</section>
 
 			{/* we are passionate section */}
-			<section className="mt-[2.56rem] md:mt-[0.5rem]">
-				<div className="mx-auto flex max-w-[77.5rem] flex-col gap-[1.5rem] px-[1.5rem] py-[2.5rem] md:flex-row md:py-[4.5rem]">
-					<h2 className="text-h2 flex-1">We are passionate.</h2>
-					<p className="text-body flex-1 text-black-50">
-						Overcoming expectations is our mission. We’re here to
-						follow your vision and extend it into one consistent
-						product. You got all according to our agreement, and
-						some more.
-						<br />
-						<br />
-						The process based on a customer-centric approach.
-						Nowadays brand communication should be something that
-						people really want to be involved in. Understanding and
-						vibing your audience is what we’re here for.
-						<br />
-						<br />
-						It may be not easy and time-consuming, but we don’t look
-						for short ways. We’re lordly of our mission and it’s
-						this attitude that defines us.
-					</p>
-				</div>
+			<section className="mx-auto mt-[2.56rem] flex max-w-[77.5rem] flex-col gap-[1.5rem] px-[1.5rem] py-[2.5rem] md:mt-[0.5rem] md:flex-row md:py-[4.5rem]">
+				<h2 className="text-h2 flex-1">We are passionate.</h2>
+				<p className="text-body flex-1 text-black-50">
+					Overcoming expectations is our mission. We’re here to follow
+					your vision and extend it into one consistent product. You
+					got all according to our agreement, and some more.
+					<br />
+					<br />
+					The process based on a customer-centric approach. Nowadays
+					brand communication should be something that people really
+					want to be involved in. Understanding and vibing your
+					audience is what we’re here for.
+					<br />
+					<br />
+					It may be not easy and time-consuming, but we don’t look for
+					short ways. We’re lordly of our mission and it’s this
+					attitude that defines us.
+				</p>
 			</section>
 
 			{/* services section */}
@@ -194,7 +191,7 @@ export default function Home() {
 							key={work.name}
 							className="flex flex-col gap-[1rem]"
 						>
-							<figure className="w-fill relative h-[13.5rem] md:h-[15.63rem] md:w-[23.75rem]">
+							<figure className="w-fill relative h-[13.5rem] md:h-[15.63rem] md:w-[22rem]">
 								<Image
 									src={work.imageSrc}
 									alt={work.name}
@@ -215,6 +212,32 @@ export default function Home() {
 				<span className="text-sm w-fill mx-auto mt-[2.5rem] flex items-center justify-center font-semibold text-blue-100 underline md:hidden">
 					View More
 				</span>
+			</section>
+
+			{/* we deliver section */}
+			<section className="mx-auto mb-[4.5rem] mt-[4.25rem] flex max-w-[77.5rem] flex-col gap-[2rem] px-[1.5rem] py-[2rem] md:mb-[0.5rem] md:mt-[0.5rem] md:flex-row md:gap-[1.5rem] md:py-[9.63rem]">
+				<header className="flex flex-1 flex-col items-start gap-[1.5rem] md:gap-[2rem]">
+					<h2 className="text-h2">
+						We deliver for you whatever you need
+					</h2>
+					<button className="btn-blue">Let’s work together</button>
+				</header>
+				<p className="text-body flex-1 text-black-50">
+					Overcoming expectations is our mission. We’re here to follow
+					your vision and extend it into one consistent product. You
+					got all according to our agreement, and some more.
+					<br />
+					<br />
+					The process based on a customer-centric approach. Nowadays
+					brand communication should be something that people really
+					want to be involved in. Understanding and vibing your
+					audience is what we’re here for.
+					<br />
+					<br />
+					It may be not easy and time-consuming, but we don’t look for
+					short ways. We’re lordly of our mission and it’s this
+					attitude that defines us.
+				</p>
 			</section>
 		</>
 	)
