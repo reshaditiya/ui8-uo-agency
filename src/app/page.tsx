@@ -11,7 +11,7 @@ const collaborateCompanies = [
 export default function Home() {
 	return (
 		<>
-			<div className="pt-[3.75rem] md:pt-[5rem] px-[1.5rem]">
+			<div className="max-w-[77.5rem] mx-auto pt-[3.75rem] md:pt-[5rem] px-[1.5rem]">
 				<div className="relative flex flex-col gap-[1rem] md:gap-[1.5rem] overflow-visible">
 					{/* derocation */}
 					<div className="absolute rounded-full border border-black-50 top-[-1.5rem] md:top-[-4rem] left-0 h-[1.2rem] w-[3.13rem] md:h-[3rem] md:w-[7.75rem]" />
@@ -37,7 +37,7 @@ export default function Home() {
 					/>
 				</div>
 			</div>
-			<div className="flex flex-col gap-[1.5rem] md:gap-[3rem] py-[2rem] md:py-[6.88rem] mt-[0.5rem]">
+			<div className="max-w-[77.5rem] mx-auto flex flex-col gap-[1.5rem] md:gap-[3rem] py-[2rem] md:py-[6.88rem] mt-[0.5rem]">
 				<p className="text-[0.88rem] md:text-[1.5rem] text-center font-semibold text-black-50 px-[1.5rem]">
 					We collaborate with{" "}
 					<span className="text-blue-100">
@@ -55,26 +55,29 @@ export default function Home() {
 					))}
 				</div>
 			</div>
-			<div className="flex flex-col md:flex-row gap-[1.5rem] md:gap-0 py-[2.5rem] md:py-[4.5rem] px-[1.5rem] bg-light-gray">
-				<h2 className="flex-1 text-[1.5rem] md:text-[4rem] font-bold">
-					We are passionate.
-				</h2>
-				<p className="flex-1 md:text-[1.5rem] text-black-50">
-					Overcoming expectations is our mission. We’re here to follow
-					your vision and extend it into one consistent product. You
-					got all according to our agreement, and some more.
-					<br />
-					<br />
-					The process based on a customer-centric approach. Nowadays
-					brand communication should be something that people really
-					want to be involved in. Understanding and vibing your
-					audience is what we’re here for.
-					<br />
-					<br />
-					It may be not easy and time-consuming, but we don’t look for
-					short ways. We’re lordly of our mission and it’s this
-					attitude that defines us.
-				</p>
+			<div className="bg-light-gray">
+				<div className="max-w-[77.5rem] mx-auto flex flex-col md:flex-row gap-[1.5rem] md:gap-0 py-[2.5rem] md:py-[4.5rem] px-[1.5rem]">
+					<h2 className="flex-1 text-[1.5rem] md:text-[4rem] font-bold">
+						We are passionate.
+					</h2>
+					<p className="flex-1 md:text-[1.5rem] text-black-50">
+						Overcoming expectations is our mission. We’re here to
+						follow your vision and extend it into one consistent
+						product. You got all according to our agreement, and
+						some more.
+						<br />
+						<br />
+						The process based on a customer-centric approach.
+						Nowadays brand communication should be something that
+						people really want to be involved in. Understanding and
+						vibing your audience is what we’re here for.
+						<br />
+						<br />
+						It may be not easy and time-consuming, but we don’t look
+						for short ways. We’re lordly of our mission and it’s
+						this attitude that defines us.
+					</p>
+				</div>
 			</div>
 		</>
 	)

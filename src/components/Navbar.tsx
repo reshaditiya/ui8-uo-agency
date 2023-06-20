@@ -163,8 +163,8 @@ export default function Navbar() {
 	}, [pathname])
 
 	return (
-		<nav className="w-full max-w-[77.5rem] left-1/2 -translate-x-1/2 fixed top-0 bg-white z-10">
-			<div className="flex justify-between items-center py-[2.5rem] md:py-[1rem] px-[1.5rem]">
+		<nav className="w-full fixed top-0 bg-white z-10">
+			<div className="max-w-[77.5rem] mx-auto flex justify-between items-center py-[2.5rem] md:py-[1rem] px-[1.5rem]">
 				{/* logo */}
 				<AnimatePresence>
 					<motion.div
