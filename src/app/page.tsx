@@ -95,7 +95,7 @@ export default function Home() {
 			{/* we are passionate section */}
 			<section className="bg-light-gray">
 				<div className="mx-auto mt-[2.56rem] flex max-w-[77.5rem] flex-col gap-[1.5rem] px-[1.5rem] py-[2.5rem] md:mt-[0.5rem] md:flex-row md:py-[4.5rem]">
-					<h2 className="text-h2 flex-1">We are passionate.</h2>
+					<h2 className="text-h2 flex-1">We are passionate</h2>
 					<p className="text-body flex-1 text-black-50">
 						Overcoming expectations is our mission. We’re here to
 						follow your vision and extend it into one consistent
