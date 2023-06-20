@@ -205,7 +205,7 @@ export default function Home() {
 							</figure>
 							<p className="text-body text-black-70">
 								<span className="font-bold">
-									{work.name + "."}
+									{work.name + ". "}
 								</span>
 								{work.shortDesc}
 							</p>
