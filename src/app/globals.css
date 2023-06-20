@@ -9,6 +9,9 @@
 	.text-h2 {
 		@apply text-[1.5rem] md:text-[4rem] font-bold;
 	}
+	.text-h3 {
+		@apply text-[1.5rem] md:text-[3rem] font-bold;
+	}
 	.text-sm {
 		@apply text-[0.88rem] md:text-[1rem];
 	}
