@@ -199,15 +199,20 @@ export default function Navbar() {
 						>
 							{routes.map((route) => {
 								const isActive = pathname === route.route
-								return (
+								return isActive ? (
+									<span
+										key={route.route}
+										className="text-sm cursor-pointer select-none font-bold hover:text-black-70
+											active:text-black-50"
+									>
+										{route.name}
+									</span>
+								) : (
 									<Link
 										key={route.route}
 										href={route.route}
-										className={`text-sm cursor-pointer select-none hover:text-black-70 active:text-black-50 ${
-											isActive
-												? "font-bold"
-												: "font-medium"
-										}`}
+										className="text-sm cursor-pointer select-none font-medium hover:text-black-70
+											active:text-black-50"
 									>
 										{route.name}
 									</Link>
