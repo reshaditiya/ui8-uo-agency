@@ -52,7 +52,7 @@ export default function Home() {
 					<h1 className="text-h1 max-w-[64.31rem]">
 						We are a{" "}
 						<span className="text-blue-100">digital agency</span>{" "}
-						that will save your life.
+						that will save your life
 					</h1>
 					<span className="text-sm max-w-[41.69rem] text-black-70">
 						Lörem ipsum metavalens krisväska. Läsade infras. Uling
