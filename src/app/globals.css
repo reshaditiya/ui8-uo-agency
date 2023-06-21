@@ -30,6 +30,9 @@
 	.btn-border-active {
 		@apply text-sm rounded-full border-blue-100 px-[1.75rem] py-[0.88rem] transition-all md:px-[2rem] md:py-[1rem];
 	}
+	.input-text {
+		@apply rounded-[0.19rem] border border-black-10 px-[1rem] py-[0.88rem] placeholder-black-70;
+	}
 }
 
 @layer utilities {
