@@ -1,5 +1,5 @@
 import Image from "next/image"
-import works from "./data/works"
+import works from "../data/works"
 import Link from "next/link"
 
 type CollaborateCompanies = {
