@@ -1,5 +1,12 @@
-import React from "react";
+"use client"
 
-export default function page() {
-  return <div>Contact</div>;
+import { useRouter } from "next/navigation"
+import { useEffect } from "react"
+
+export default function Page() {
+	const router = useRouter()
+
+	useEffect(() => {
+		router.push("/contact/need")
+	})
 }
