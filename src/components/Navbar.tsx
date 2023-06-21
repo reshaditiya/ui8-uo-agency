@@ -188,7 +188,7 @@ export default function Navbar() {
 				</AnimatePresence>
 				{/* desktop main menu */}
 				<AnimatePresence mode="wait">
-					{pathname !== "/contact" && (
+					{!pathname.startsWith("/contact") && (
 						<motion.div
 							key="main-menu"
 							className="hidden gap-[4.5rem] md:flex"
@@ -221,7 +221,7 @@ export default function Navbar() {
 						</motion.div>
 					)}
 					{/* desktop contact */}
-					{pathname === "/contact" ? (
+					{pathname.startsWith("/contact") ? (
 						<motion.div
 							key="close-contact"
 							className="text-sm hidden cursor-pointer select-none font-semibold text-blue-100 underline hover:text-blue-70 active:text-blue-50 md:block"
@@ -248,7 +248,7 @@ export default function Navbar() {
 
 				{/* mobile hamburger or close */}
 				<AnimatePresence mode="wait">
-					{pathname === "/contact" ? (
+					{pathname.startsWith("/contact") ? (
 						<motion.span
 							key="close_link"
 							className="text-sm cursor-pointer select-none font-semibold text-blue-100 underline hover:text-blue-70 active:text-blue-50 md:hidden"
@@ -261,7 +261,7 @@ export default function Navbar() {
 								Close
 							</Link>
 						</motion.span>
-					) : isNavOpen && pathname !== "/contact" ? (
+					) : isNavOpen && !pathname.startsWith("/contact") ? (
 						<motion.button
 							key="close_btn"
 							className="md:hidden"
