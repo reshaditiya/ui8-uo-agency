@@ -19,19 +19,19 @@
 		@apply text-[1rem] leading-[1.5rem] md:text-[1.5rem] md:leading-[2rem];
 	}
 	.btn-blue {
-		@apply text-sm cursor-pointer rounded-full bg-blue-100 px-[1.75rem] py-[0.88rem] text-white transition-all hover:bg-blue-90 active:bg-blue-70 md:px-[2rem] md:py-[1rem];
+		@apply text-sm cursor-pointer rounded-full bg-blue-100 px-[1.75rem] py-[0.88rem] font-semibold text-white transition-all hover:bg-blue-90 active:bg-blue-70 md:px-[2rem] md:py-[1rem];
 	}
 	.btn-gray {
-		@apply text-sm cursor-pointer rounded-full bg-black-50 px-[1.75rem] py-[0.88rem] text-white transition-all hover:bg-black-30 active:bg-black-10 md:px-[2rem] md:py-[1rem];
+		@apply text-sm cursor-pointer rounded-full bg-black-50 px-[1.75rem] py-[0.88rem] font-semibold text-white transition-all hover:bg-black-30 active:bg-black-10 md:px-[2rem] md:py-[1rem];
 	}
 	.btn-border {
-		@apply text-sm cursor-pointer rounded-full border border-black-100 px-[1.75rem] py-[0.88rem] transition-all hover:border-blue-90 hover:text-blue-90 active:border-blue-70 active:text-blue-70 md:px-[2rem] md:py-[1rem];
+		@apply text-sm cursor-pointer rounded-full border border-black-100 px-[1.75rem] py-[0.88rem] font-semibold transition-all hover:border-blue-90 hover:text-blue-90 active:border-blue-70 active:text-blue-70 md:px-[2rem] md:py-[1rem];
 	}
 	.btn-border-active {
 		@apply text-sm cursor-pointer rounded-full border-blue-100 px-[1.75rem] py-[0.88rem] font-bold text-blue-100 transition-all md:px-[2rem] md:py-[1rem];
 	}
 	.input-text {
-		@apply placeholder:text-sm rounded-[0.19rem] border border-black-10 px-[1rem] py-[0.88rem] placeholder:text-black-70 md:py-[1rem];
+		@apply placeholder:text-sm rounded-[0.19rem] border border-black-10 px-[1rem] py-[0.88rem] font-medium placeholder:text-black-70 md:py-[1rem];
 	}
 }
 
