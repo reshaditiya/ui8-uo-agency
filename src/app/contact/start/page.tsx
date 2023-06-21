@@ -34,15 +34,15 @@ export default function page() {
 						))}
 					</div>
 					<label
-						htmlFor="description"
+						htmlFor="else"
 						className="text-body flex flex-col gap-[1rem]"
 					>
 						Anything else?
 						<textarea
-							id="description"
-							name="description"
+							id="else"
+							name="else"
 							className="input-text"
-							placeholder="Tell us about your project"
+							placeholder="Whatever else there is to share, please do let us know here."
 						/>
 					</label>
 				</div>
