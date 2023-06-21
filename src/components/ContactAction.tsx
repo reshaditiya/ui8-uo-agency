@@ -21,16 +21,20 @@ export default function ContactAction({ pathname }: { pathname: string }) {
 				</div>
 				<div className="flex gap-[1rem]">
 					{currLinkIndex !== 0 && (
-						<Link href={linkOrder[currLinkIndex - 1] || ""}>
-							<button className="btn-gray">Back</button>
+						<Link
+							className="btn-gray"
+							href={linkOrder[currLinkIndex - 1] || ""}
+						>
+							Back
 						</Link>
 					)}
-					<Link href={linkOrder[currLinkIndex + 1] || ""}>
-						<button className="btn-blue">
-							{currLinkIndex === linkOrder.length - 1
-								? "Submit"
-								: "Next"}
-						</button>
+					<Link
+						className="btn-blue"
+						href={linkOrder[currLinkIndex + 1] || ""}
+					>
+						{currLinkIndex === linkOrder.length - 1
+							? "Submit"
+							: "Next"}
 					</Link>
 				</div>
 			</div>
