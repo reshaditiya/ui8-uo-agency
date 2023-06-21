@@ -10,7 +10,7 @@ export default function ContactAction({ pathname }: { pathname: string }) {
 				<div className="flex gap-[0.75rem]">
 					{linkOrder.map((link) => (
 						<span
-							key="link"
+							key={link}
 							className={`h-[0.5rem] w-[0.5rem] rounded-full ${
 								pathname === link
 									? "bg-black-100"
