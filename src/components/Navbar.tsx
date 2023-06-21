@@ -170,21 +170,21 @@ export default function Navbar() {
 			<div className="mx-auto flex max-w-[77.5rem] items-center justify-between px-[1.5rem] py-[2.5rem] md:py-[1rem]">
 				{/* logo */}
 				<AnimatePresence>
-					<motion.figure
-						className="relative h-[2.5rem] w-[9.06rem] select-none md:h-[4rem] md:w-[13.31rem]"
-						variants={animateNavLink}
-						initial="initial"
-						animate="animate"
-						exit="exit"
-					>
-						<Link href="/">
+					<Link href="/">
+						<motion.figure
+							className="relative h-[2.5rem] w-[9.06rem] select-none md:h-[4rem] md:w-[13.31rem]"
+							variants={animateNavLink}
+							initial="initial"
+							animate="animate"
+							exit="exit"
+						>
 							<Image
 								src="/logo-text.svg"
 								alt="UO Agency Logo"
 								fill={true}
 							/>
-						</Link>
-					</motion.figure>
+						</motion.figure>
+					</Link>
 				</AnimatePresence>
 				{/* desktop main menu */}
 				<AnimatePresence mode="wait">
