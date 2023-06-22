@@ -1,3 +1,8 @@
+"use client"
+
+import { useContext } from "react"
+import { ContactDataContext } from "@/src/components/Contexts"
+
 const services = [
 	"Branding",
 	"Web Design",
@@ -10,7 +15,10 @@ const services = [
 	"Presentation",
 ]
 
-export default function page() {
+export default function Page() {
+	const { getter: contactData, setter: dispatchContactData }: any =
+		useContext(ContactDataContext)
+
 	return (
 		<>
 			<h1 className="text-h2">What do you need help with from us?</h1>
@@ -20,8 +28,16 @@ export default function page() {
 						<input
 							id={service}
 							type="radio"
+							checked={contactData.need === service}
+							onChange={(e) =>
+								dispatchContactData({
+									type: "need",
+									value: e.target.value,
+								})
+							}
 							className="btn-border peer hidden"
 							name="need"
+							value={service}
 						/>
 
 						<label
