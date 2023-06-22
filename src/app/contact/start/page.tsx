@@ -1,6 +1,6 @@
 "use client"
 
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { ContactDataContext } from "@/src/components/Contexts"
 
 const projectTime = ["1 Month", "2 Months", "3 Months"]
@@ -23,28 +23,30 @@ export default function Page() {
 						id="budget"
 						className="flex flex-wrap gap-[0.63rem] md:gap-[1rem]"
 					>
-						{projectTime.map((time) => (
-							<div key={time}>
+						{projectTime.map((projectTime) => (
+							<div key={projectTime}>
 								<input
-									id={time}
+									id={projectTime}
 									type="radio"
 									className="btn-border peer hidden"
 									name="projectTime"
-									value={time}
-									checked={contactData.time === time}
+									value={projectTime}
+									checked={
+										contactData.projectTime === projectTime
+									}
 									onChange={(e) =>
 										dispatchContactData({
-											type: "time",
-											value: time,
+											type: "projectTime",
+											value: projectTime,
 										})
 									}
 								/>
 
 								<label
-									htmlFor={time}
+									htmlFor={projectTime}
 									className="btn-border peer-checked:btn-border-active block"
 								>
-									{time}
+									{projectTime}
 								</label>
 							</div>
 						))}
