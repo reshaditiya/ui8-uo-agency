@@ -1,4 +1,12 @@
-export default function page() {
+"use client"
+
+import { useContext } from "react"
+import { ContactDataContext } from "@/src/components/Contexts"
+
+export default function Page() {
+	const { getter: contactData, setter: dispatchContactData }: any =
+		useContext(ContactDataContext)
+
 	return (
 		<>
 			<h1 className="text-h2">
@@ -14,6 +22,13 @@ export default function page() {
 					type="text"
 					className="input-text"
 					placeholder="First name"
+					value={contactData.firstName}
+					onChange={(e) =>
+						dispatchContactData({
+							type: "firstName",
+							value: e.target.value,
+						})
+					}
 				/>
 
 				<label htmlFor="lastName" className="sr-only">
@@ -25,6 +40,13 @@ export default function page() {
 					type="text"
 					className="input-text"
 					placeholder="Last name"
+					value={contactData.lastName}
+					onChange={(e) =>
+						dispatchContactData({
+							type: "lastName",
+							value: e.target.value,
+						})
+					}
 				/>
 
 				<label htmlFor="email" className="sr-only">
@@ -33,9 +55,16 @@ export default function page() {
 				<input
 					id="email"
 					name="email"
-					type="text"
+					type="email"
 					className="input-text col-span-2"
 					placeholder="Your email address"
+					value={contactData.email}
+					onChange={(e) =>
+						dispatchContactData({
+							type: "email",
+							value: e.target.value,
+						})
+					}
 				/>
 
 				<label htmlFor="company" className="sr-only">
@@ -47,6 +76,13 @@ export default function page() {
 					type="text"
 					className="input-text col-span-2"
 					placeholder="Your company name"
+					value={contactData.company}
+					onChange={(e) =>
+						dispatchContactData({
+							type: "company",
+							value: e.target.value,
+						})
+					}
 				/>
 			</form>
 		</>
