@@ -1,6 +1,14 @@
+"use client"
+
+import { useContext } from "react"
+import { ContactDataContext } from "@/src/components/Contexts"
+
 const projectTime = ["1 Month", "2 Months", "3 Months"]
 
-export default function page() {
+export default function Page() {
+	const { getter: contactData, setter: dispatchContactData }: any =
+		useContext(ContactDataContext)
+
 	return (
 		<>
 			<h1 className="text-h2">
@@ -22,6 +30,14 @@ export default function page() {
 									type="radio"
 									className="btn-border peer hidden"
 									name="projectTime"
+									value={time}
+									checked={contactData.time === time}
+									onChange={(e) =>
+										dispatchContactData({
+											type: "time",
+											value: time,
+										})
+									}
 								/>
 
 								<label
@@ -43,6 +59,13 @@ export default function page() {
 							name="else"
 							className="input-text"
 							placeholder="Whatever else there is to share, please do let us know here."
+							value={contactData.else}
+							onChange={(e) =>
+								dispatchContactData({
+									type: "else",
+									value: e.target.value,
+								})
+							}
 						/>
 					</label>
 				</div>

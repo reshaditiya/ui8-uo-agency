@@ -1,6 +1,14 @@
+"use client"
+
+import { useContext } from "react"
+import { ContactDataContext } from "@/src/components/Contexts"
+
 const budgetOption = ["<$5K", "$5-10K", "$10-50K", "$50K+"]
 
-export default function page() {
+export default function Page() {
+	const { getter: contactData, setter: dispatchContactData }: any =
+		useContext(ContactDataContext)
+
 	return (
 		<>
 			<h1 className="text-h2">
@@ -17,6 +25,13 @@ export default function page() {
 						name="description"
 						className="input-text"
 						placeholder="Tell us about your project"
+						value={contactData.description}
+						onChange={(e) =>
+							dispatchContactData({
+								type: "description",
+								value: e.target.value,
+							})
+						}
 					/>
 				</label>
 				<div className="flex flex-col gap-[1rem]">
@@ -34,6 +49,14 @@ export default function page() {
 									type="radio"
 									className="btn-border peer hidden"
 									name="budget"
+									checked={contactData.budget === budget}
+									value={budget}
+									onChange={(e) =>
+										dispatchContactData({
+											type: "budget",
+											value: e.target.value,
+										})
+									}
 								/>
 
 								<label
