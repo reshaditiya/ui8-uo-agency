@@ -1,18 +1,45 @@
 "use client"
 
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { ContactDataContext } from "@/src/components/Contexts"
+import { ContactAction } from "@/src/components"
+
+function validateEmail(email: string): boolean {
+	const expression: RegExp = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
+	return email.trim() !== "" && expression.test(email)
+}
 
 export default function Page() {
 	const { getter: contactData, setter: dispatchContactData }: any =
 		useContext(ContactDataContext)
+	const [isEverSubmitted, setIsEverSubmitted] = useState(false)
+	const validateResult =
+		contactData.lastName &&
+		contactData.lastName &&
+		contactData.email &&
+		validateEmail(contactData.email) &&
+		contactData.company
+
+	function submitHandler() {
+		setIsEverSubmitted(true)
+
+		return validateResult ? true : false
+	}
 
 	return (
 		<>
 			<h1 className="text-h2">
 				Tell us a bit more about yourself and your company.
 			</h1>
-			<form className="mt-[2.5rem] grid grid-cols-2 gap-[0.75rem] md:gap-[1.5rem]">
+			{isEverSubmitted && !validateResult && (
+				<p className="text-body mt-[1.5rem] text-red">
+					Make sure to fill all the necessary data.
+				</p>
+			)}
+			<form
+				className="mt-[2.5rem] grid grid-cols-2 gap-[0.75rem] md:gap-[1.5rem]"
+				onSubmit={(e) => e.preventDefault()}
+			>
 				<label htmlFor="firstName" className="sr-only">
 					First Name
 				</label>
@@ -20,15 +47,19 @@ export default function Page() {
 					id="firstName"
 					name="firstName"
 					type="text"
-					className="input-text"
+					className={`input-text  ${
+						isEverSubmitted &&
+						!contactData.firstName &&
+						"border-red text-red placeholder:text-red"
+					}`}
 					placeholder="First name"
 					value={contactData.firstName}
-					onChange={(e) =>
+					onChange={(e) => {
 						dispatchContactData({
 							type: "firstName",
 							value: e.target.value,
 						})
-					}
+					}}
 				/>
 
 				<label htmlFor="lastName" className="sr-only">
@@ -38,15 +69,19 @@ export default function Page() {
 					id="lastName"
 					name="lastName"
 					type="text"
-					className="input-text"
+					className={`input-text  ${
+						isEverSubmitted &&
+						!contactData.lastName &&
+						"border-red text-red placeholder:text-red"
+					}`}
 					placeholder="Last name"
 					value={contactData.lastName}
-					onChange={(e) =>
+					onChange={(e) => {
 						dispatchContactData({
 							type: "lastName",
 							value: e.target.value,
 						})
-					}
+					}}
 				/>
 
 				<label htmlFor="email" className="sr-only">
@@ -56,15 +91,19 @@ export default function Page() {
 					id="email"
 					name="email"
 					type="email"
-					className="input-text col-span-2"
+					className={`input-text col-span-2  ${
+						isEverSubmitted &&
+						!validateEmail(contactData.email) &&
+						"border-red text-red placeholder:text-red"
+					}`}
 					placeholder="Your email address"
 					value={contactData.email}
-					onChange={(e) =>
+					onChange={(e) => {
 						dispatchContactData({
 							type: "email",
 							value: e.target.value,
 						})
-					}
+					}}
 				/>
 
 				<label htmlFor="company" className="sr-only">
@@ -74,7 +113,11 @@ export default function Page() {
 					id="company"
 					name="company"
 					type="text"
-					className="input-text col-span-2"
+					className={`input-text col-span-2  ${
+						isEverSubmitted &&
+						!contactData.company &&
+						"border-red text-red placeholder:text-red"
+					}`}
 					placeholder="Your company name"
 					value={contactData.company}
 					onChange={(e) =>
@@ -84,6 +127,7 @@ export default function Page() {
 						})
 					}
 				/>
+				<ContactAction clickHandler={submitHandler} />
 			</form>
 		</>
 	)

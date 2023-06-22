@@ -1,20 +1,37 @@
 "use client"
 
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { ContactDataContext } from "@/src/components/Contexts"
+import { ContactAction } from "@/src/components"
 
 const budgetOption = ["<$5K", "$5-10K", "$10-50K", "$50K+"]
 
 export default function Page() {
 	const { getter: contactData, setter: dispatchContactData }: any =
 		useContext(ContactDataContext)
+	const [isEverSubmitted, setIsEverSubmitted] = useState(false)
+	const validateResult = contactData.description && contactData.budget
+
+	function submitHandler() {
+		setIsEverSubmitted(true)
+
+		return validateResult ? true : false
+	}
 
 	return (
 		<>
 			<h1 className="text-h2">
 				Tell us a bit more about yourself and your company.
 			</h1>
-			<form className="mt-[2.5rem] flex flex-col gap-[1.5rem] md:gap-[2.25rem]">
+			{isEverSubmitted && !validateResult && (
+				<p className="text-body mt-[1.5rem] text-red">
+					Make sure to fill all the necessary data.
+				</p>
+			)}
+			<form
+				className="mt-[2.5rem] flex flex-col gap-[1.5rem] md:gap-[2.25rem]"
+				onSubmit={(e) => e.preventDefault()}
+			>
 				<label
 					htmlFor="description"
 					className="text-body flex flex-col gap-[1rem]"
@@ -23,7 +40,11 @@ export default function Page() {
 					<textarea
 						id="description"
 						name="description"
-						className="input-text"
+						className={`input-text  ${
+							isEverSubmitted &&
+							!contactData.description &&
+							"border-red text-red placeholder:text-red"
+						}`}
 						placeholder="Tell us about your project"
 						value={contactData.description}
 						onChange={(e) =>
@@ -47,7 +68,7 @@ export default function Page() {
 								<input
 									id={budget}
 									type="radio"
-									className="btn-border peer hidden"
+									className="peer hidden"
 									name="budget"
 									checked={contactData.budget === budget}
 									value={budget}
@@ -61,7 +82,11 @@ export default function Page() {
 
 								<label
 									htmlFor={budget}
-									className="btn-border peer-checked:btn-border-active block"
+									className={`btn-border peer-checked:btn-border-active block ${
+										isEverSubmitted &&
+										!contactData.budget &&
+										"border-red text-red"
+									}`}
 								>
 									{budget}
 								</label>
@@ -69,6 +94,7 @@ export default function Page() {
 						))}
 					</div>
 				</div>
+				<ContactAction clickHandler={submitHandler} />
 			</form>
 		</>
 	)

@@ -1,47 +1,21 @@
-"use client"
-
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { useRouter } from "next/navigation"
-import { useEffect, useRef } from "react"
 
 const linkOrder = ["need", "detail", "info", "start"]
 
 export default function ContactAction({
-	pathname,
-	validateData,
-	setIsValid,
-	isValid,
+	clickHandler,
 }: {
-	pathname: string
-	validateData: Function
-	setIsValid: Function
-	isValid: Boolean
+	clickHandler: Function
 }) {
-	const currLinkIndex = linkOrder.findIndex((link) => link === pathname)
 	const router = useRouter()
-	const isFirstLoad = useRef(true)
-
-	function handleSubmit() {
-		if (validateData()) {
-			setIsValid(true)
-		} else {
-			setIsValid(false)
-		}
-	}
-
-	useEffect(() => {
-		if (isFirstLoad.current) {
-			isFirstLoad.current = false
-			return
-		}
-
-		isValid && router.push(linkOrder[currLinkIndex + 1] || "")
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [isValid])
+	const pathname = usePathname().replaceAll("/", "").replace("contact", "")
+	const currLinkIndex = linkOrder.findIndex((link) => link === pathname)
 
 	return (
 		<>
-			<div className="mt-[5rem] flex items-center justify-between">
+			<div className="col-span-full mt-[5rem] flex w-full items-center justify-between">
 				<div className="flex gap-[0.75rem]">
 					{linkOrder.map((link) => (
 						<span
@@ -63,7 +37,13 @@ export default function ContactAction({
 							Back
 						</Link>
 					)}
-					<button className="btn-blue" onClick={handleSubmit}>
+					<button
+						className="btn-blue"
+						onClick={() =>
+							clickHandler() &&
+							router.push(linkOrder[currLinkIndex + 1] || "")
+						}
+					>
 						{currLinkIndex === linkOrder.length - 1
 							? "Submit"
 							: "Next"}
