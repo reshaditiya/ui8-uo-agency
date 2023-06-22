@@ -31,7 +31,7 @@
 		@apply text-sm cursor-pointer rounded-full border-blue-100 px-[1.75rem] py-[0.88rem] font-bold text-blue-100 transition-all md:px-[2rem] md:py-[1rem];
 	}
 	.input-text {
-		@apply placeholder:text-sm rounded-[0.19rem] border border-black-10 px-[1rem] py-[0.88rem] font-medium placeholder:text-black-70 md:py-[1rem];
+		@apply text-sm placeholder:text-sm rounded-[0.19rem] border border-black-10 px-[1rem] py-[0.88rem] font-medium placeholder:text-black-70 md:py-[1rem];
 	}
 }
 
