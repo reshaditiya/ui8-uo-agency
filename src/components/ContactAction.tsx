@@ -1,7 +1,13 @@
 const linkOrder = ["need", "detail", "info", "start"]
 import Link from "next/link"
 
-export default function ContactAction({ pathname }: { pathname: string }) {
+export default function ContactAction({
+	pathname,
+	handleClick,
+}: {
+	pathname: string
+	handleClick: Function
+}) {
 	const currLinkIndex = linkOrder.findIndex((link) => link === pathname)
 
 	return (
