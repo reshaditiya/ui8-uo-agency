@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { ContactAction } from "@/src/components"
-import { useReducer } from "react"
+import { useReducer, useState } from "react"
 import { ContactDataContext } from "@/src/components/Contexts"
 
 type ImageLayout = {
@@ -76,11 +76,11 @@ export default function ContactLayout({
 	const pathname =
 		usePathname().replaceAll("/", "").replace("contact", "") || "need"
 	const imageSrc = imageLayout[pathname]
-
 	const [contactData, dispatchContactData] = useReducer(
 		reducerContactData,
 		contactDataInit
 	)
+	const [isValid, setIsValid] = useState(true)
 
 	function validateData() {
 		switch (pathname) {
@@ -99,10 +99,13 @@ export default function ContactLayout({
 				return contactData.description && contactData.budget
 					? true
 					: false
+				break
 			case "start":
 				return contactData.projectTime ? true : false
+				break
 
 			default:
+				throw new Error()
 				break
 		}
 	}
@@ -111,11 +114,20 @@ export default function ContactLayout({
 		<section className="mx-auto mb-[5rem] flex max-w-[77.5rem] gap-[2.5rem] px-[1.5rem]">
 			<section className="mx-auto mt-[3.75rem] flex-1 md:mt-[5rem]">
 				<ContactDataContext.Provider
-					value={{ getter: contactData, setter: dispatchContactData }}
+					value={{
+						getter: contactData,
+						setter: dispatchContactData,
+						isValid: isValid,
+					}}
 				>
 					{children}
 				</ContactDataContext.Provider>
-				<ContactAction pathname={pathname} handleClick={validateData} />
+				<ContactAction
+					pathname={pathname}
+					validateData={validateData}
+					setIsValid={setIsValid}
+					isValid={isValid}
+				/>
 			</section>
 			<figure className="relative hidden flex-1 md:block">
 				<Image src={imageSrc} fill alt="" className="object-cover" />

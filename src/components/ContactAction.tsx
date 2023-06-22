@@ -1,14 +1,43 @@
-const linkOrder = ["need", "detail", "info", "start"]
+"use client"
+
 import Link from "next/link"
+import { useRouter } from "next/navigation"
+import { useEffect, useRef } from "react"
+
+const linkOrder = ["need", "detail", "info", "start"]
 
 export default function ContactAction({
 	pathname,
-	handleClick,
+	validateData,
+	setIsValid,
+	isValid,
 }: {
 	pathname: string
-	handleClick: Function
+	validateData: Function
+	setIsValid: Function
+	isValid: Boolean
 }) {
 	const currLinkIndex = linkOrder.findIndex((link) => link === pathname)
+	const router = useRouter()
+	const isFirstLoad = useRef(true)
+
+	function handleSubmit() {
+		if (validateData()) {
+			setIsValid(true)
+		} else {
+			setIsValid(false)
+		}
+	}
+
+	useEffect(() => {
+		if (isFirstLoad.current) {
+			isFirstLoad.current = false
+			return
+		}
+
+		isValid && router.push(linkOrder[currLinkIndex + 1] || "")
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [isValid])
 
 	return (
 		<>
@@ -34,14 +63,11 @@ export default function ContactAction({
 							Back
 						</Link>
 					)}
-					<Link
-						className="btn-blue"
-						href={linkOrder[currLinkIndex + 1] || ""}
-					>
+					<button className="btn-blue" onClick={handleSubmit}>
 						{currLinkIndex === linkOrder.length - 1
 							? "Submit"
 							: "Next"}
-					</Link>
+					</button>
 				</div>
 			</div>
 			{currLinkIndex === linkOrder.length - 1 && (
