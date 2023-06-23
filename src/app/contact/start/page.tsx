@@ -42,7 +42,6 @@ export default function Page() {
 									type="radio"
 									className="btn-border peer hidden"
 									name="projectTime"
-									value={projectTime}
 									checked={
 										contactData.projectTime === projectTime
 									}
@@ -61,6 +60,14 @@ export default function Page() {
 										!contactData.projectTime &&
 										"border-red text-red"
 									}`}
+									onKeyDown={(e) => {
+										e.key === "Enter" &&
+											dispatchContactData({
+												type: "projectTime",
+												value: projectTime,
+											})
+									}}
+									tabIndex={1}
 								>
 									{projectTime}
 								</label>

@@ -45,14 +45,12 @@ export default function Page() {
 							onChange={(e) => {
 								dispatchContactData({
 									type: "need",
-									value: e.target.value,
+									value: service,
 								})
 							}}
 							className="peer hidden"
 							name="need"
-							value={service}
 						/>
-
 						<label
 							htmlFor={service}
 							className={`btn-border peer-checked:btn-border-active block ${
@@ -60,6 +58,14 @@ export default function Page() {
 								!contactData.need &&
 								"border-red text-red"
 							}`}
+							onKeyDown={(e) => {
+								e.key === "Enter" &&
+									dispatchContactData({
+										type: "need",
+										value: service,
+									})
+							}}
+							tabIndex={1}
 						>
 							{service}
 						</label>

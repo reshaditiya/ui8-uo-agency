@@ -66,11 +66,10 @@ export default function Page() {
 									className="peer hidden"
 									name="budget"
 									checked={contactData.budget === budget}
-									value={budget}
 									onChange={(e) =>
 										dispatchContactData({
 											type: "budget",
-											value: e.target.value,
+											value: budget,
 										})
 									}
 								/>
@@ -82,6 +81,14 @@ export default function Page() {
 										!contactData.budget &&
 										"border-red text-red"
 									}`}
+									onKeyDown={(e) => {
+										e.key === "Enter" &&
+											dispatchContactData({
+												type: "budget",
+												value: budget,
+											})
+									}}
+									tabIndex={1}
 								>
 									{budget}
 								</label>
