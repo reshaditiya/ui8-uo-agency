@@ -31,11 +31,6 @@ export default function Page() {
 			<h1 className="text-h2">
 				Tell us a bit more about yourself and your company.
 			</h1>
-			{isEverSubmitted && !validateResult && (
-				<p className="text-body mt-[1.5rem] text-red">
-					Make sure to fill all the necessary data.
-				</p>
-			)}
 			<form
 				className="mt-[2.5rem] grid grid-cols-2 gap-[0.75rem] md:gap-[1.5rem]"
 				onSubmit={(e) => e.preventDefault()}
@@ -127,6 +122,25 @@ export default function Page() {
 						})
 					}
 				/>
+				{isEverSubmitted && !validateResult && (
+					<p className="text-sm col-span-2 flex gap-[0.5rem] text-red">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							strokeWidth={1.5}
+							stroke="currentColor"
+							className="h-6 w-6"
+						>
+							<path
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"
+							/>
+						</svg>
+						Make sure to fill all the necessary data.
+					</p>
+				)}
 				<ContactAction clickHandler={submitHandler} />
 			</form>
 		</>
