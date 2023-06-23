@@ -65,7 +65,7 @@ export default function Page() {
 										value: service,
 									})
 							}}
-							tabIndex={1}
+							tabIndex={0}
 						>
 							{service}
 						</label>

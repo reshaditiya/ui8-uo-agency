@@ -67,7 +67,7 @@ export default function Page() {
 												value: projectTime,
 											})
 									}}
-									tabIndex={1}
+									tabIndex={0}
 								>
 									{projectTime}
 								</label>

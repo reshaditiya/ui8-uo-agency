@@ -88,7 +88,7 @@ export default function Page() {
 												value: budget,
 											})
 									}}
-									tabIndex={1}
+									tabIndex={0}
 								>
 									{budget}
 								</label>
