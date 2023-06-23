@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation"
 import { defaultAnimation, fadeAnimation } from "../app/utils/animation"
 import { AnimatePresence, motion } from "framer-motion"
+import { useEffect } from "react"
 
 export default function Modal({
 	title,
@@ -21,11 +22,13 @@ export default function Modal({
 }) {
 	const router = useRouter()
 
-	document.body.classList.add("overflow-hidden")
+	useEffect(() => {
+		isModalOpen
+			? document.body.classList.add("overflow-hidden")
+			: document.body.classList.remove("overflow-hidden")
+	}, [isModalOpen])
 
 	function savelyClose() {
-		document.body.classList.remove("overflow-hidden")
-
 		closeHandler()
 	}
 
