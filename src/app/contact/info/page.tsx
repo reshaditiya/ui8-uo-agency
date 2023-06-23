@@ -1,14 +1,14 @@
 "use client"
 
 import { useContext, useState } from "react"
-import { ContactDataContext } from "@/src/data/Contexts"
+import { contactDataContext } from "@/src/app/utils/contexts"
 import { ContactAction } from "@/src/components"
 
 const budgetOption = ["<$5K", "$5-10K", "$10-50K", "$50K+"]
 
 export default function Page() {
 	const { getter: contactData, setter: dispatchContactData }: any =
-		useContext(ContactDataContext)
+		useContext(contactDataContext)
 	const [isEverSubmitted, setIsEverSubmitted] = useState(false)
 	const validateResult = contactData.description && contactData.budget
 

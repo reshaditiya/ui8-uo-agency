@@ -1,7 +1,7 @@
 "use client"
 
 import { useContext, useState } from "react"
-import { ContactDataContext } from "@/src/data/Contexts"
+import { contactDataContext } from "@/src/app/utils/contexts"
 import { ContactAction } from "@/src/components"
 
 const services = [
@@ -18,7 +18,7 @@ const services = [
 
 export default function Page() {
 	const { getter: contactData, setter: dispatchContactData }: any =
-		useContext(ContactDataContext)
+		useContext(contactDataContext)
 	const [isEverSubmitted, setIsEverSubmitted] = useState(false)
 	const validateResult = contactData.need
 

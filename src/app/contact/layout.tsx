@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { useReducer } from "react"
-import { ContactDataContext } from "@/src/data/Contexts"
+import { contactDataContext } from "@/src/app/utils/contexts"
 
 type ImageLayout = {
 	[key: string]: string
@@ -83,14 +83,14 @@ export default function ContactLayout({
 	return (
 		<section className="mx-auto mb-[5rem] flex max-w-[77.5rem] gap-[2.5rem] px-[1.5rem]">
 			<section className="mx-auto mt-[3.75rem] flex-1 md:mt-[5rem]">
-				<ContactDataContext.Provider
+				<contactDataContext.Provider
 					value={{
 						getter: contactData,
 						setter: dispatchContactData,
 					}}
 				>
 					{children}
-				</ContactDataContext.Provider>
+				</contactDataContext.Provider>
 			</section>
 			<figure className="relative hidden flex-1 md:block">
 				<Image src={imageSrc} fill alt="" className="object-cover" />
