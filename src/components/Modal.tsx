@@ -1,6 +1,5 @@
 "use client"
 
-import { useEffect } from "react"
 import { useRouter } from "next/navigation"
 
 export default function Modal({
@@ -28,7 +27,7 @@ export default function Modal({
 
 	return (
 		<div
-			className="fixed inset-0 z-50 flex items-center justify-center bg-black-100/20"
+			className="fixed inset-0 z-50 flex items-center justify-center bg-black-100/40 backdrop-blur-sm"
 			onClick={() => savelyClose()}
 		>
 			<div

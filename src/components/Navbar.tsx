@@ -86,7 +86,7 @@ function Drawer({ handleClose }: DrawerProps) {
 			{/* backdrop */}
 			<motion.div
 				key="backdrop"
-				className="fixed h-screen w-full bg-black-100/20"
+				className="fixed h-screen w-full bg-black-100/40 backdrop-blur-sm"
 				onClick={handleClose}
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1 }}
