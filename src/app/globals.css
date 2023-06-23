@@ -24,6 +24,9 @@
 	.btn-gray {
 		@apply text-sm cursor-pointer rounded-full bg-black-50 px-[1.75rem] py-[0.88rem] font-semibold text-white transition-all hover:bg-black-30 active:bg-black-10 md:px-[2rem] md:py-[1rem];
 	}
+	.btn-red {
+		@apply text-sm cursor-pointer rounded-full bg-red px-[1.75rem] py-[0.88rem] font-semibold text-white transition-all hover:bg-red/90 active:bg-red/70 md:px-[2rem] md:py-[1rem];
+	}
 	.btn-border {
 		@apply text-sm cursor-pointer rounded-full border border-black-100 px-[1.75rem] py-[0.88rem] font-semibold transition-all hover:border-blue-90 hover:text-blue-90 active:border-blue-70 active:text-blue-70 md:px-[2rem] md:py-[1rem];
 	}
