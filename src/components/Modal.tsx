@@ -32,7 +32,7 @@ export default function Modal({
 			onClick={() => savelyClose()}
 		>
 			<div
-				className="mx-[1.5rem] max-w-[30rem] rounded-[1.5rem] bg-white p-[1.5rem]"
+				className="mx-[1.5rem] max-w-[30rem] rounded-[1.5rem] bg-white p-[1.5rem] md:p-[2rem]"
 				onClick={(e) => e.stopPropagation()}
 			>
 				<h1 className="text-h3">{title}</h1>
