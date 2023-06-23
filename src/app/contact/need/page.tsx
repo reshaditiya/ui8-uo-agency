@@ -1,8 +1,8 @@
 "use client"
 
 import { useContext, useState } from "react"
-import { ContactDataContext } from "@/src/components/Contexts"
-import { ContactAction } from "@/src/components"
+import { ContactDataContext } from "@/src/data/Contexts"
+import { ContactAction, Modal } from "@/src/components"
 
 const services = [
 	"Branding",
@@ -30,6 +30,7 @@ export default function Page() {
 
 	return (
 		<>
+			<Modal />
 			<h1 className="text-h2">What do you need help with from us?</h1>
 
 			<form

@@ -1,7 +1,7 @@
 "use client"
 
 import { useContext, useState } from "react"
-import { ContactDataContext } from "@/src/components/Contexts"
+import { ContactDataContext } from "@/src/data/Contexts"
 import { ContactAction } from "@/src/components"
 
 const budgetOption = ["<$5K", "$5-10K", "$10-50K", "$50K+"]

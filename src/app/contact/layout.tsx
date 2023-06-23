@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { useReducer } from "react"
-import { ContactDataContext } from "@/src/components/Contexts"
+import { ContactDataContext } from "@/src/data/Contexts"
 
 type ImageLayout = {
 	[key: string]: string

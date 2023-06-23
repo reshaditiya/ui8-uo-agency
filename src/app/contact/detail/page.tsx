@@ -1,7 +1,7 @@
 "use client"
 
 import { useContext, useState } from "react"
-import { ContactDataContext } from "@/src/components/Contexts"
+import { ContactDataContext } from "@/src/data/Contexts"
 import { ContactAction } from "@/src/components"
 
 function validateEmail(email: string): boolean {
