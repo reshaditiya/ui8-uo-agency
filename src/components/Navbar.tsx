@@ -103,11 +103,9 @@ export default function Navbar() {
 	const navReducer = (state: any, action: any) => {
 		switch (action) {
 			case "open": {
-				document.body.classList.add("overflow-hidden")
 				return true
 			}
 			case "close": {
-				document.body.classList.remove("overflow-hidden")
 				return false
 			}
 		}
@@ -147,6 +145,12 @@ export default function Navbar() {
 	useEffect(() => {
 		navDispatch("close")
 	}, [pathname])
+
+	useEffect(() => {
+		isNavOpen
+			? document.body.classList.add("overflow-hidden")
+			: document.body.classList.remove("overflow-hidden")
+	}, [isNavOpen])
 
 	return (
 		<nav className="fixed top-0 z-10 w-full bg-white">
