@@ -40,8 +40,9 @@ function Drawer({ handleClose }: DrawerProps) {
 	}
 
 	return (
-		<>
+		<AnimatePresence>
 			<motion.ul
+				key="drawer"
 				className="absolute left-0 right-0 z-10 flex flex-col bg-white pb-[2rem] md:hidden"
 				variants={animateNav}
 				initial="initial"
@@ -84,13 +85,14 @@ function Drawer({ handleClose }: DrawerProps) {
 
 			{/* backdrop */}
 			<motion.div
+				key="backdrop"
 				className="fixed h-screen w-full bg-black-100/20"
 				onClick={handleClose}
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1 }}
 				exit={{ opacity: 0 }}
 			></motion.div>
-		</>
+		</AnimatePresence>
 	)
 }
 
@@ -180,87 +182,65 @@ export default function Navbar() {
 			)}
 			<div className="mx-auto flex max-w-[77.5rem] items-center justify-between px-[1.5rem] py-[2.5rem] md:py-[1rem]">
 				{/* logo */}
-				<AnimatePresence>
-					<Link href="/">
-						<motion.figure
-							className="relative h-[2.5rem] w-[9.06rem] select-none md:h-[4rem] md:w-[13.31rem]"
-							variants={animateNavLink}
-							initial="initial"
-							animate="animate"
-							exit="exit"
-						>
-							<Image
-								src="/logo-text.svg"
-								alt="UO Agency Logo"
-								fill={true}
-							/>
-						</motion.figure>
-					</Link>
-				</AnimatePresence>
+				<Link href="/">
+					<motion.figure className="relative h-[2.5rem] w-[9.06rem] select-none md:h-[4rem] md:w-[13.31rem]">
+						<Image
+							src="/logo-text.svg"
+							alt="UO Agency Logo"
+							fill={true}
+						/>
+					</motion.figure>
+				</Link>
 				{/* desktop main menu */}
-				<AnimatePresence mode="wait">
-					{!pathname.startsWith("/contact") && (
-						<motion.div
-							key="main-menu"
-							className="hidden gap-[4.5rem] md:flex"
-							variants={animateNavLink}
-							initial="initial"
-							animate="animate"
-							exit="exit"
-						>
-							{routes.map((route) => {
-								const isActive = pathname === route.route
-								return isActive ? (
-									<span
-										key={route.route}
-										className="text-sm cursor-pointer select-none font-bold hover:text-black-70
+				{!pathname.startsWith("/contact") && (
+					<div
+						key="main-menu"
+						className="hidden gap-[4.5rem] md:flex"
+					>
+						{routes.map((route) => {
+							const isActive = pathname === route.route
+							return isActive ? (
+								<span
+									key={route.route}
+									className="text-sm cursor-pointer select-none font-bold hover:text-black-70
 											active:text-black-50"
-									>
-										{route.name}
-									</span>
-								) : (
-									<Link
-										key={route.route}
-										href={route.route}
-										className="text-sm cursor-pointer select-none font-medium hover:text-black-70
+								>
+									{route.name}
+								</span>
+							) : (
+								<Link
+									key={route.route}
+									href={route.route}
+									className="text-sm cursor-pointer select-none font-medium hover:text-black-70
 											active:text-black-50"
-									>
-										{route.name}
-									</Link>
-								)
-							})}
-						</motion.div>
-					)}
-					{/* desktop contact */}
-					{pathname.startsWith("/contact") ? (
-						<motion.div
-							key="close-contact"
-							className="text-sm hidden cursor-pointer select-none font-semibold text-blue-100 underline hover:text-blue-70 active:text-blue-50 md:block"
-							variants={animateNavLink}
-							initial="initial"
-							animate="animate"
-							exit="exit"
-						>
-							<button
-								key="contact"
-								onClick={() => setIsCloseModalOpen(true)}
-							>
-								Close
-							</button>
-						</motion.div>
-					) : (
-						<motion.div
+								>
+									{route.name}
+								</Link>
+							)
+						})}
+					</div>
+				)}
+				{/* desktop contact */}
+				{pathname.startsWith("/contact") ? (
+					<div
+						key="close-contact"
+						className="text-sm hidden cursor-pointer select-none font-semibold text-blue-100 underline hover:text-blue-70 active:text-blue-50 md:block"
+					>
+						<button
 							key="contact"
-							className="text-sm hidden cursor-pointer select-none font-semibold underline hover:text-black-70 active:text-black-50 md:block"
-							variants={animateNavLink}
-							initial="initial"
-							animate="animate"
-							exit="exit"
+							onClick={() => setIsCloseModalOpen(true)}
 						>
-							<Link href="/contact">Get in touch</Link>
-						</motion.div>
-					)}
-				</AnimatePresence>
+							Close
+						</button>
+					</div>
+				) : (
+					<div
+						key="contact"
+						className="text-sm hidden cursor-pointer select-none font-semibold underline hover:text-black-70 active:text-black-50 md:block"
+					>
+						<Link href="/contact">Get in touch</Link>
+					</div>
+				)}
 
 				{/* mobile hamburger or close */}
 				<AnimatePresence mode="wait">
@@ -268,10 +248,6 @@ export default function Navbar() {
 						<motion.span
 							key="close_link"
 							className="text-sm cursor-pointer select-none font-semibold text-blue-100 underline hover:text-blue-70 active:text-blue-50 md:hidden"
-							variants={animateNavLink}
-							initial="initial"
-							animate="animate"
-							exit="exit"
 						>
 							<button
 								key="contact"
@@ -335,11 +311,7 @@ export default function Navbar() {
 			</div>
 
 			{/* mobile drawer */}
-			<AnimatePresence>
-				{isNavOpen && (
-					<Drawer handleClose={() => navDispatch("close")} />
-				)}
-			</AnimatePresence>
+			{isNavOpen && <Drawer handleClose={() => navDispatch("close")} />}
 		</nav>
 	)
 }
