@@ -27,7 +27,7 @@ function Drawer({ handleClose }: DrawerProps) {
 	const animateNav = {
 		initial: {
 			opacity: 0,
-			y: -16,
+			y: -24,
 		},
 		animate: {
 			opacity: 1,
