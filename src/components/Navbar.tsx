@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation"
 import { useEffect, useReducer, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Modal } from "./"
+import { fadeAnimation } from "../app/utils/animation"
 
 type Route = {
 	name: string
@@ -40,7 +41,7 @@ function Drawer({ handleClose }: DrawerProps) {
 	}
 
 	return (
-		<AnimatePresence>
+		<>
 			<motion.ul
 				key="drawer"
 				className="absolute left-0 right-0 z-10 flex flex-col bg-white pb-[2rem] md:hidden"
@@ -88,11 +89,12 @@ function Drawer({ handleClose }: DrawerProps) {
 				key="backdrop"
 				className="fixed h-screen w-full bg-black-100/40 backdrop-blur-sm"
 				onClick={handleClose}
-				initial={{ opacity: 0 }}
-				animate={{ opacity: 1 }}
-				exit={{ opacity: 0 }}
+				variants={fadeAnimation}
+				initial="initial"
+				animate="animate"
+				exit="exit"
 			></motion.div>
-		</AnimatePresence>
+		</>
 	)
 }
 
@@ -111,7 +113,7 @@ export default function Navbar() {
 		}
 	}
 	const [isNavOpen, navDispatch] = useReducer(navReducer, false)
-	const [isCloseModalOpen, setIsCloseModalOpen] = useState(false)
+	const [isModalOpen, setIsModalOpen] = useState(false)
 
 	// animation
 	const animateIcon = {
@@ -148,15 +150,14 @@ export default function Navbar() {
 
 	return (
 		<nav className="fixed top-0 z-10 w-full bg-white">
-			{isCloseModalOpen && (
-				<Modal
-					title="Are you sure you want to close?"
-					description="Closing the form will discard all the data you have input?"
-					isError={true}
-					closeHandler={() => setIsCloseModalOpen(false)}
-					nextRoute={"/"}
-				/>
-			)}
+			<Modal
+				title="Are you sure you want to close?"
+				description="Closing the form will discard all the data you have input?"
+				isError={true}
+				closeHandler={() => setIsModalOpen(false)}
+				isModalOpen={isModalOpen}
+				nextRoute={"/"}
+			/>
 			<div className="mx-auto flex max-w-[77.5rem] items-center justify-between px-[1.5rem] py-[2.5rem] md:py-[1rem]">
 				{/* logo */}
 				<Link
@@ -206,7 +207,7 @@ export default function Navbar() {
 					>
 						<button
 							key="contact"
-							onClick={() => setIsCloseModalOpen(true)}
+							onClick={() => setIsModalOpen(true)}
 						>
 							Close
 						</button>
@@ -229,7 +230,7 @@ export default function Navbar() {
 						>
 							<button
 								key="contact"
-								onClick={() => setIsCloseModalOpen(true)}
+								onClick={() => setIsModalOpen(true)}
 							>
 								Close
 							</button>
@@ -289,7 +290,11 @@ export default function Navbar() {
 			</div>
 
 			{/* mobile drawer */}
-			{isNavOpen && <Drawer handleClose={() => navDispatch("close")} />}
+			<AnimatePresence>
+				{isNavOpen && (
+					<Drawer handleClose={() => navDispatch("close")} />
+				)}
+			</AnimatePresence>
 		</nav>
 	)
 }
