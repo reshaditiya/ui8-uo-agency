@@ -1,20 +1,39 @@
+"use client"
+
 import Image from "next/image"
 import works from "../../data/works"
+import { defaultAnimation } from "../utils/animation"
+import { motion } from "framer-motion"
 
 export default function page() {
 	return (
 		<>
 			<section className="mx-auto mb-[6.25rem] max-w-[77.5rem] px-[1.5rem] pt-[3.75rem] md:pt-[5rem]">
-				<h1 className="text-h1 max-w-[64.31rem]">
+				<motion.h1
+					className="text-h1 max-w-[64.31rem]"
+					variants={defaultAnimation}
+					initial="initial"
+					animate="animate"
+				>
 					Our some fabulous works
-				</h1>
+				</motion.h1>
 
 				{/* work list */}
-				<div className="mt-[4rem] flex flex-col gap-[2.5rem]">
+				<motion.div
+					className="mt-[4rem] flex flex-col gap-[2.5rem]"
+					variants={defaultAnimation}
+					initial="initial"
+					animate="animate"
+					transition={{ delay: 0.2 }}
+				>
 					{works.map((work) => (
-						<div
+						<motion.div
 							key={work.name}
 							className="w-fill relative flex h-[23.31rem] flex-col items-start gap-[1.5rem] px-[1rem] pb-[1.5rem] pt-[3.44rem] md:h-[39.25rem] md:justify-between md:px-[3.5rem] md:pb-[3.5rem] md:pt-[3.5rem]"
+							variants={defaultAnimation}
+							initial="initial"
+							whileInView="animate"
+							viewport={{ once: true, margin: "-240px" }}
 						>
 							<h2 className="text-body font-bold text-white">
 								{work.name}
@@ -31,9 +50,9 @@ export default function page() {
 								fill
 								className="-z-20 object-cover"
 							/>
-						</div>
+						</motion.div>
 					))}
-				</div>
+				</motion.div>
 			</section>
 		</>
 	)

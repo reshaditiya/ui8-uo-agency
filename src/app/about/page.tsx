@@ -1,4 +1,8 @@
+"use client"
+
 import Image from "next/image"
+import { defaultAnimation } from "../utils/animation"
+import { motion } from "framer-motion"
 
 export default function page() {
 	return (
@@ -7,16 +11,33 @@ export default function page() {
 			<section className="bg-black-100 px-[1.5rem] pb-[1.5rem] pt-[3.75rem] md:pb-[6.25rem] md:pt-[5rem]">
 				<div className="mx-auto flex max-w-[77.5rem] flex-col gap-[3.13rem] md:gap-[4.19rem]">
 					<div className="flex flex-col gap-[1rem] md:gap-[1.5rem]">
-						<h1 className="text-h1 max-w-[64.31rem] text-white">
+						<motion.h1
+							className="text-h1 max-w-[64.31rem] text-white"
+							variants={defaultAnimation}
+							initial="initial"
+							animate="animate"
+						>
 							Creating digital product excellence
-						</h1>
-						<p className="text-sm max-w-[41.69rem] text-white">
+						</motion.h1>
+						<motion.p
+							className="text-sm max-w-[41.69rem] text-white"
+							variants={defaultAnimation}
+							initial="initial"
+							animate="animate"
+							transition={{ delay: 0.2 }}
+						>
 							Lörem ipsum metavalens krisväska. Läsade infras.
 							Uling vipp och gagyrtad. Donde beföskade polyamori
 							är lavis. Prelasa esm, kropp sytes.
-						</p>
+						</motion.p>
 					</div>
-					<div className="flex flex-col gap-[1.5rem] md:flex-row">
+					<motion.div
+						className="flex flex-col gap-[1.5rem] md:flex-row"
+						variants={defaultAnimation}
+						initial="initial"
+						animate="animate"
+						transition={{ delay: 0.4 }}
+					>
 						<figure className="w-fill relative h-[27.44rem] md:w-4/12">
 							<Image
 								key="1"
@@ -35,12 +56,18 @@ export default function page() {
 								className="object-cover"
 							/>
 						</figure>
-					</div>
+					</motion.div>
 				</div>
 			</section>
 
 			{/* simplicity section */}
-			<section className="mx-auto mt-[0.63rem] flex max-w-[77.5rem] flex-col gap-[4rem] px-[1.5rem] py-[4.5rem] md:mt-0 md:flex-row md:items-start md:py-[6.88rem]">
+			<motion.section
+				className="mx-auto mt-[0.63rem] flex max-w-[77.5rem] flex-col gap-[4rem] px-[1.5rem] py-[4.5rem] md:mt-0 md:flex-row md:items-start md:py-[6.88rem]"
+				variants={defaultAnimation}
+				initial="initial"
+				whileInView="animate"
+				viewport={{ once: true, margin: "-240px" }}
+			>
 				<div className="flex flex-col gap-[1rem] md:flex-1 md:gap-[2rem]">
 					<h2 className="text-h2">Simplicity</h2>
 					<p className="text-body text-black-50">
@@ -64,10 +91,16 @@ export default function page() {
 						className="object-cover"
 					/>
 				</figure>
-			</section>
+			</motion.section>
 
 			{/* stats section */}
-			<section className="mx-auto mb-[3.06rem] mt-[0.63rem] flex max-w-[77.5rem] flex-col gap-[2.5rem] px-[1.5rem]">
+			<motion.section
+				className="mx-auto mb-[3.06rem] mt-[0.63rem] flex max-w-[77.5rem] flex-col gap-[2.5rem] px-[1.5rem]"
+				variants={defaultAnimation}
+				initial="initial"
+				whileInView="animate"
+				viewport={{ once: true, margin: "-240px" }}
+			>
 				<hr className="border-black-30" />
 				<div className="mx-auto flex max-w-[71.38rem] flex-col gap-[2.5rem] md:gap-[3.5rem]">
 					<p className="text-h3 text-center font-bold">
@@ -102,7 +135,7 @@ export default function page() {
 					</div>
 				</div>
 				<hr className="border-black-30" />
-			</section>
+			</motion.section>
 		</>
 	)
 }
