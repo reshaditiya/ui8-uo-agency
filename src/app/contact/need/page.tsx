@@ -2,7 +2,7 @@
 
 import { useContext, useState } from "react"
 import { ContactDataContext } from "@/src/data/Contexts"
-import { ContactAction, Modal } from "@/src/components"
+import { ContactAction } from "@/src/components"
 
 const services = [
 	"Branding",
@@ -30,7 +30,6 @@ export default function Page() {
 
 	return (
 		<>
-			<Modal />
 			<h1 className="text-h2">What do you need help with from us?</h1>
 
 			<form
@@ -67,7 +66,7 @@ export default function Page() {
 					</div>
 				))}
 				{isEverSubmitted && !validateResult && (
-					<p className="text-sm flex gap-[0.5rem] text-red">
+					<p className="text-sm flex w-full gap-[0.5rem] text-red">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"

@@ -1,6 +1,9 @@
+"use client"
+
 import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { useRouter } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
+import { useState } from "react"
+import { Modal } from "./"
 
 const linkOrder = ["need", "detail", "info", "start"]
 
@@ -12,9 +15,28 @@ export default function ContactAction({
 	const router = useRouter()
 	const pathname = usePathname().replaceAll("/", "").replace("contact", "")
 	const currLinkIndex = linkOrder.findIndex((link) => link === pathname)
+	const [isCloseModalOpen, setIsCloseModalOpen] = useState(false)
+
+	function nextButtonHandle() {
+		if (clickHandler()) {
+			if (currLinkIndex === linkOrder.length - 1) {
+				setIsCloseModalOpen(true)
+			} else {
+				router.push(linkOrder[currLinkIndex + 1] || "")
+			}
+		}
+	}
 
 	return (
 		<>
+			{isCloseModalOpen && (
+				<Modal
+					title="Your submission has been sent"
+					description="Thanks for contacting us we’ll reach you out pretty soon"
+					closeHandler={() => setIsCloseModalOpen(false)}
+					nextRoute={"/"}
+				/>
+			)}
 			<div className="col-span-full mt-[5rem] flex w-full items-center justify-between">
 				<div className="flex gap-[0.75rem]">
 					{linkOrder.map((link) => (
@@ -39,10 +61,7 @@ export default function ContactAction({
 					)}
 					<button
 						className="btn-blue"
-						onClick={() =>
-							clickHandler() &&
-							router.push(linkOrder[currLinkIndex + 1] || "")
-						}
+						onClick={() => nextButtonHandle()}
 					>
 						{currLinkIndex === linkOrder.length - 1
 							? "Submit"

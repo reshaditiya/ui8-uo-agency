@@ -3,8 +3,9 @@
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { useEffect, useReducer, useRef } from "react"
+import { useEffect, useReducer, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import { Modal } from "./"
 
 type Route = {
 	name: string
@@ -108,6 +109,7 @@ export default function Navbar() {
 		}
 	}
 	const [isNavOpen, navDispatch] = useReducer(navReducer, false)
+	const [isCloseModalOpen, setIsCloseModalOpen] = useState(false)
 
 	// animation
 	const animateIcon = {
@@ -167,6 +169,15 @@ export default function Navbar() {
 
 	return (
 		<nav className="fixed top-0 z-10 w-full bg-white">
+			{isCloseModalOpen && (
+				<Modal
+					title="Are you sure you want to close?"
+					description="Closing the form will discard all the data you have input?"
+					isError={true}
+					closeHandler={() => setIsCloseModalOpen(false)}
+					nextRoute={"/"}
+				/>
+			)}
 			<div className="mx-auto flex max-w-[77.5rem] items-center justify-between px-[1.5rem] py-[2.5rem] md:py-[1rem]">
 				{/* logo */}
 				<AnimatePresence>
@@ -230,7 +241,12 @@ export default function Navbar() {
 							animate="animate"
 							exit="exit"
 						>
-							<Link href="/">Close</Link>
+							<button
+								key="contact"
+								onClick={() => setIsCloseModalOpen(true)}
+							>
+								Close
+							</button>
 						</motion.div>
 					) : (
 						<motion.div
@@ -257,9 +273,12 @@ export default function Navbar() {
 							animate="animate"
 							exit="exit"
 						>
-							<Link key="contact" href="/">
+							<button
+								key="contact"
+								onClick={() => setIsCloseModalOpen(true)}
+							>
 								Close
-							</Link>
+							</button>
 						</motion.span>
 					) : isNavOpen && !pathname.startsWith("/contact") ? (
 						<motion.button
