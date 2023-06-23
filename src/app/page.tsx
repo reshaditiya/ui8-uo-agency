@@ -1,6 +1,10 @@
+"use client"
+
 import Image from "next/image"
 import works from "../data/works"
 import Link from "next/link"
+import { motion } from "framer-motion"
+import { defaultAnimation } from "./utils/animation"
 
 type CollaborateCompanies = {
 	name: string
@@ -46,32 +50,65 @@ export default function Home() {
 			<section className="mx-auto max-w-[77.5rem] px-[1.5rem] pt-[3.75rem] md:pt-[5rem]">
 				<div className="relative flex flex-col gap-[1rem] overflow-visible md:gap-[1.5rem]">
 					{/* derocation */}
-					<div className="absolute left-0 top-[-1.5rem] h-[1.2rem] w-[3.13rem] rounded-full border border-black-50 md:top-[-4rem] md:h-[3rem] md:w-[7.75rem]" />
-					<div className="absolute bottom-[-1.5rem] right-0 h-[1rem] w-[2.5rem] rounded-full border border-black-50 md:h-[1.9rem] md:w-[4.06rem]" />
+					<motion.div
+						className="absolute left-0 top-[-1.5rem] h-[1.2rem] w-[3.13rem] rounded-full border border-black-50 md:top-[-4rem] md:h-[3rem] md:w-[7.75rem]"
+						initial={{ scale: 0.8, opacity: 0 }}
+						animate={{ scale: 1, opacity: 1 }}
+						transition={{ delay: 0.6 }}
+					/>
+					<motion.div
+						className="absolute bottom-[-1.5rem] right-0 h-[1rem] w-[2.5rem] rounded-full border border-black-50 md:h-[1.9rem] md:w-[4.06rem]"
+						initial={{ scale: 0.8, opacity: 0 }}
+						animate={{ scale: 1, opacity: 1 }}
+						transition={{ delay: 0.8 }}
+					/>
 
-					<h1 className="text-h1 max-w-[64.31rem]">
+					<motion.h1
+						className="text-h1 max-w-[64.31rem]"
+						variants={defaultAnimation}
+						initial="initial"
+						animate="animate"
+					>
 						We are a{" "}
 						<span className="text-blue-100">digital agency</span>{" "}
 						that will save your life
-					</h1>
-					<span className="text-sm max-w-[41.69rem] text-black-70">
+					</motion.h1>
+					<motion.span
+						className="text-sm max-w-[41.69rem] text-black-70"
+						variants={defaultAnimation}
+						initial="initial"
+						animate="animate"
+						transition={{ delay: 0.2 }}
+					>
 						Lörem ipsum metavalens krisväska. Läsade infras. Uling
 						vipp och gagyrtad. Donde beföskade polyamori är lavis.
 						Prelasa esm, kropp sytes.
-					</span>
+					</motion.span>
 				</div>
-				<figure className="w-fill relative mt-[4.63rem] h-[27.44rem] md:mt-[4.19rem] md:h-[39.25rem]">
+				<motion.figure
+					className="w-fill relative mt-[4.63rem] h-[27.44rem] md:mt-[4.19rem] md:h-[39.25rem]"
+					variants={defaultAnimation}
+					initial="initial"
+					animate="animate"
+					transition={{ delay: 0.4 }}
+				>
 					<Image
 						src="/images/team1.webp"
 						alt="Our Team"
 						fill
 						className="object-cover"
 					/>
-				</figure>
+				</motion.figure>
 			</section>
 
 			{/* company collaboration section */}
-			<section className="mx-auto mt-[2.56rem] flex max-w-[77.5rem] flex-col gap-[1.5rem] py-[2rem] md:mt-[0.5rem] md:gap-[3rem] md:py-[6.88rem]">
+			<motion.section
+				className="mx-auto mt-[2.56rem] flex max-w-[77.5rem] flex-col gap-[1.5rem] py-[2rem] md:mt-[0.5rem] md:gap-[3rem] md:py-[6.88rem]"
+				variants={defaultAnimation}
+				initial="initial"
+				whileInView="animate"
+				viewport={{ once: true, margin: "-240px" }}
+			>
 				<p className="text-body px-[1.5rem] text-center font-semibold text-black-50">
 					We collaborate with{" "}
 					<span className="text-blue-100">
@@ -90,10 +127,16 @@ export default function Home() {
 						</figure>
 					))}
 				</div>
-			</section>
+			</motion.section>
 
 			{/* we are passionate section */}
-			<section className="bg-light-gray">
+			<motion.section
+				className="bg-light-gray"
+				variants={defaultAnimation}
+				initial="initial"
+				whileInView="animate"
+				viewport={{ once: true, margin: "-240px" }}
+			>
 				<div className="mx-auto mt-[2.56rem] flex max-w-[77.5rem] flex-col gap-[1.5rem] px-[1.5rem] py-[2.5rem] md:mt-[0.5rem] md:flex-row md:py-[4.5rem]">
 					<h2 className="text-h2 flex-1">We are passionate</h2>
 					<p className="text-body flex-1 text-black-50">
@@ -114,10 +157,16 @@ export default function Home() {
 						this attitude that defines us.
 					</p>
 				</div>
-			</section>
+			</motion.section>
 
 			{/* services section */}
-			<section className="mx-auto mt-[1.5rem] max-w-[77.5rem] px-[1.5rem] py-[2rem] md:mt-[0.5rem] md:py-[3.75rem]">
+			<motion.section
+				className="mx-auto mt-[1.5rem] max-w-[77.5rem] px-[1.5rem] py-[2rem] md:mt-[0.5rem] md:py-[3.75rem]"
+				variants={defaultAnimation}
+				initial="initial"
+				whileInView="animate"
+				viewport={{ once: true, margin: "-240px" }}
+			>
 				<div className="flex flex-col items-start gap-[2rem] md:flex-row md:items-center md:justify-between md:gap-[1.5rem]">
 					<div className="flex max-w-[39.38rem] flex-1 flex-col gap-[1rem] md:gap-[1.5rem]">
 						<h2 className="text-h2">
@@ -177,10 +226,16 @@ export default function Home() {
 						</svg>
 					</div>
 				))}
-			</section>
+			</motion.section>
 
 			{/* recent works section */}
-			<section className="mx-auto max-w-[77.5rem] px-[1.5rem]">
+			<motion.section
+				className="mx-auto max-w-[77.5rem] px-[1.5rem]"
+				variants={defaultAnimation}
+				initial="initial"
+				whileInView="animate"
+				viewport={{ once: true, margin: "-240px" }}
+			>
 				<div className="md:flex md:items-end md:justify-between">
 					<h2 className="text-h3">Recent Works</h2>
 					<Link
@@ -222,10 +277,16 @@ export default function Home() {
 				>
 					View More
 				</Link>
-			</section>
+			</motion.section>
 
 			{/* we deliver section */}
-			<section className="mx-auto mb-[4.5rem] mt-[4.25rem] flex max-w-[77.5rem] flex-col gap-[2rem] px-[1.5rem] py-[2rem] md:mb-[0.5rem] md:mt-[0.5rem] md:flex-row md:gap-[1.5rem] md:py-[9.63rem]">
+			<motion.section
+				className="mx-auto mb-[4.5rem] mt-[4.25rem] flex max-w-[77.5rem] flex-col gap-[2rem] px-[1.5rem] py-[2rem] md:mb-[0.5rem] md:mt-[0.5rem] md:flex-row md:gap-[1.5rem] md:py-[9.63rem]"
+				variants={defaultAnimation}
+				initial="initial"
+				whileInView="animate"
+				viewport={{ once: true, margin: "-240px" }}
+			>
 				<header className="flex flex-1 flex-col items-start gap-[1.5rem] md:gap-[2rem]">
 					<h2 className="text-h2">
 						We deliver for you whatever you need
@@ -248,7 +309,7 @@ export default function Home() {
 					short ways. We’re lordly of our mission and it’s this
 					attitude that defines us.
 				</p>
-			</section>
+			</motion.section>
 		</>
 	)
 }
