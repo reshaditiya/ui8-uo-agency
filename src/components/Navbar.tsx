@@ -140,29 +140,6 @@ export default function Navbar() {
 			},
 		},
 	}
-	const animateNavLink = {
-		initial: {
-			opacity: 0,
-			transition: {
-				type: "spring",
-				duration: 0.2,
-			},
-		},
-		animate: {
-			opacity: 1,
-			transition: {
-				type: "spring",
-				duration: 0.2,
-			},
-		},
-		exit: {
-			opacity: 0,
-			transition: {
-				type: "spring",
-				duration: 0.2,
-			},
-		},
-	}
 
 	// close modal when route change
 	useEffect(() => {
