@@ -37,7 +37,7 @@ export default function Modal({
 			{isModalOpen && (
 				<motion.div
 					key="backdrop"
-					className="fixed z-20 flex h-screen w-full items-center justify-center bg-black-100/40 backdrop-blur-sm"
+					className="fixed inset-0 z-20 flex items-center justify-center bg-black-100/40 backdrop-blur-sm"
 					onClick={() => savelyClose()}
 					variants={fadeAnimation}
 					initial="initial"
