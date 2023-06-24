@@ -3,10 +3,11 @@
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { useEffect, useReducer, useState } from "react"
+import { useEffect, useReducer, useState, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Modal } from "./"
 import { fadeAnimation } from "../app/utils/animation"
+import { trapTabKey } from "../app/utils"
 
 type Route = {
 	name: string
@@ -23,22 +24,50 @@ const routes: Route[] = [
 	{ name: "Our Works", route: "/works" },
 ]
 
+// animation
+const animateIcon = {
+	initial: {
+		opacity: 0,
+		rotate: -45,
+		transition: {
+			type: "spring",
+			duration: 0.2,
+		},
+	},
+	animate: {
+		opacity: 1,
+		rotate: 0,
+		transition: {
+			type: "spring",
+			duration: 0.2,
+		},
+	},
+	exit: {
+		opacity: 0,
+		rotate: 45,
+		transition: {
+			type: "spring",
+			duration: 0.2,
+		},
+	},
+}
+
+const animateNav = {
+	initial: {
+		opacity: 0,
+		y: -24,
+	},
+	animate: {
+		opacity: 1,
+		y: 0,
+	},
+	exit: {
+		opacity: 0,
+		y: -16,
+	},
+}
 function Drawer({ handleClose }: DrawerProps) {
 	const pathname = usePathname()
-	const animateNav = {
-		initial: {
-			opacity: 0,
-			y: -24,
-		},
-		animate: {
-			opacity: 1,
-			y: 0,
-		},
-		exit: {
-			opacity: 0,
-			y: -16,
-		},
-	}
 
 	return (
 		<>
@@ -100,7 +129,7 @@ function Drawer({ handleClose }: DrawerProps) {
 
 export default function Navbar() {
 	const pathname = usePathname()
-	const navReducer = (state: any, action: any) => {
+	const navReducer = (state: any, action: string) => {
 		switch (action) {
 			case "open": {
 				return true
@@ -112,33 +141,12 @@ export default function Navbar() {
 	}
 	const [isNavOpen, navDispatch] = useReducer(navReducer, false)
 	const [isModalOpen, setIsModalOpen] = useState(false)
+	const firstFocus = useRef<HTMLButtonElement>(null)
 
-	// animation
-	const animateIcon = {
-		initial: {
-			opacity: 0,
-			rotate: -45,
-			transition: {
-				type: "spring",
-				duration: 0.2,
-			},
-		},
-		animate: {
-			opacity: 1,
-			rotate: 0,
-			transition: {
-				type: "spring",
-				duration: 0.2,
-			},
-		},
-		exit: {
-			opacity: 0,
-			rotate: 45,
-			transition: {
-				type: "spring",
-				duration: 0.2,
-			},
-		},
+	function handleEsc(e: KeyboardEvent) {
+		if (e.key === "Escape") {
+			navDispatch("close")
+		}
 	}
 
 	// close modal when route change
@@ -147,13 +155,20 @@ export default function Navbar() {
 	}, [pathname])
 
 	useEffect(() => {
-		isNavOpen
-			? document.body.classList.add("overflow-hidden")
-			: document.body.classList.remove("overflow-hidden")
+		if (isNavOpen) {
+			document.body.classList.add("overflow-hidden")
+			firstFocus.current?.focus()
+			document.addEventListener("keydown", handleEsc)
+		} else {
+			document.body.classList.remove("overflow-hidden")
+		}
 	}, [isNavOpen])
 
 	return (
-		<nav className="fixed top-0 z-10 w-full bg-white">
+		<nav
+			className="fixed top-0 z-10 w-full bg-white"
+			onKeyDown={trapTabKey}
+		>
 			<Modal
 				title="Are you sure you want to close?"
 				description="Closing the form will discard all the data you have input?"

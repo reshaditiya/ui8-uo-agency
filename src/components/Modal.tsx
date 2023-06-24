@@ -3,7 +3,8 @@
 import { useRouter } from "next/navigation"
 import { defaultAnimation, fadeAnimation } from "../app/utils/animation"
 import { AnimatePresence, motion } from "framer-motion"
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
+import { trapTabKey } from "../app/utils"
 
 export default function Modal({
 	title,
@@ -21,11 +22,23 @@ export default function Modal({
 	nextRoute?: string
 }) {
 	const router = useRouter()
+	const firstFocus = useRef<HTMLButtonElement>(null)
+
+	function handleEsc(e: KeyboardEvent) {
+		if (e.key === "Escape") {
+			closeHandler()
+		}
+	}
 
 	useEffect(() => {
-		isModalOpen
-			? document.body.classList.add("overflow-hidden")
-			: document.body.classList.remove("overflow-hidden")
+		if (isModalOpen) {
+			document.body.classList.add("overflow-hidden")
+			firstFocus.current?.focus()
+			document.addEventListener("keydown", handleEsc)
+		} else {
+			document.body.classList.remove("overflow-hidden")
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [isModalOpen])
 
 	function savelyClose() {
@@ -37,6 +50,7 @@ export default function Modal({
 			{isModalOpen && (
 				<motion.div
 					key="backdrop"
+					onKeyDown={trapTabKey}
 					className="fixed inset-0 z-20 flex items-center justify-center bg-black-100/40 backdrop-blur-sm"
 					onClick={() => savelyClose()}
 					variants={fadeAnimation}
@@ -57,6 +71,7 @@ export default function Modal({
 						<p className="text-sm mt-[1rem]">{description}</p>
 						<div className="mt-[4rem] flex justify-end gap-[0.63rem] md:gap-[1rem]">
 							<button
+								ref={firstFocus}
 								className="btn-gray"
 								onClick={() => {
 									savelyClose()
