@@ -86,6 +86,7 @@ export default function ContactLayout({
 				>
 					<AnimatePresence mode="wait">
 						<motion.section
+							className=""
 							key="contact"
 							variants={defaultAnimation}
 							initial="initial"
