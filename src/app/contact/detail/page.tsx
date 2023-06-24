@@ -127,7 +127,7 @@ export default function Page() {
 				<AnimatePresence>
 					{isEverSubmitted && !validateResult && (
 						<motion.p
-							className="text-sm flex w-full gap-[0.5rem] text-red"
+							className="text-sm col-span-2 flex w-full gap-[0.5rem] text-red"
 							variants={defaultAnimationSmall}
 							initial="initial"
 							animate="animate"
