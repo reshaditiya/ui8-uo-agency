@@ -3,6 +3,8 @@
 import { useContext, useState } from "react"
 import { contactDataContext } from "@/src/app/utils/contexts"
 import { ContactAction } from "@/src/components"
+import { motion, AnimatePresence } from "framer-motion"
+import { defaultAnimationSmall } from "../../utils/animation"
 
 const budgetOption = ["<$5K", "$5-10K", "$10-50K", "$50K+"]
 
@@ -96,25 +98,33 @@ export default function Page() {
 						))}
 					</div>
 				</div>
-				{isEverSubmitted && !validateResult && (
-					<p className="text-sm flex gap-[0.5rem] text-red">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							strokeWidth={1.5}
-							stroke="currentColor"
-							className="h-6 w-6"
+				<AnimatePresence>
+					{isEverSubmitted && !validateResult && (
+						<motion.p
+							className="text-sm flex w-full gap-[0.5rem] text-red"
+							variants={defaultAnimationSmall}
+							initial="initial"
+							animate="animate"
+							exit="exit"
 						>
-							<path
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"
-							/>
-						</svg>
-						Make sure to fill all the necessary data.
-					</p>
-				)}
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								strokeWidth={1.5}
+								stroke="currentColor"
+								className="h-6 w-6"
+							>
+								<path
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"
+								/>
+							</svg>
+							Make sure to fill all the necessary data.
+						</motion.p>
+					)}
+				</AnimatePresence>
 				<ContactAction clickHandler={submitHandler} />
 			</form>
 		</>
