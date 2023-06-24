@@ -15,12 +15,12 @@ export default function ContactAction({
 	const router = useRouter()
 	const pathname = usePathname().replaceAll("/", "").replace("contact", "")
 	const currLinkIndex = linkOrder.findIndex((link) => link === pathname)
-	const [isCloseModalOpen, setIsCloseModalOpen] = useState(false)
+	const [isModalOpen, setIsModalOpen] = useState(false)
 
 	function nextButtonHandle() {
 		if (clickHandler()) {
 			if (currLinkIndex === linkOrder.length - 1) {
-				setIsCloseModalOpen(true)
+				setIsModalOpen(true)
 			} else {
 				router.push(linkOrder[currLinkIndex + 1] || "")
 			}
@@ -29,12 +29,13 @@ export default function ContactAction({
 
 	return (
 		<>
-			{isCloseModalOpen && (
+			{isModalOpen && (
 				<Modal
 					title="Your submission has been sent"
 					description="Thanks for contacting us we’ll reach you out pretty soon"
-					closeHandler={() => setIsCloseModalOpen(false)}
+					closeHandler={() => setIsModalOpen(false)}
 					nextRoute={"/"}
+					isModalOpen={isModalOpen}
 				/>
 			)}
 			<div className="col-span-full mt-[5rem] flex w-full items-center justify-between">
