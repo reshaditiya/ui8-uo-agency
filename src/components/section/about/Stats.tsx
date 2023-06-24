@@ -18,8 +18,8 @@ export default function Stats() {
 			<hr className="border-black-30" />
 			<div className="mx-auto flex max-w-[71.38rem] flex-col gap-[2.5rem] md:gap-[3.5rem]">
 				<p className="text-h3 text-center font-bold">
-					As a team we strive together, collaborate and provide the
-					best experience for our clients.
+					As a team, we strive to work together, collaborate, and
+					provide the best experience for our clients.
 				</p>
 				<div className="flex flex-col gap-[3.5rem] md:flex-row md:justify-between md:gap-0">
 					<div className="flex flex-col items-center gap-[1.5rem]">

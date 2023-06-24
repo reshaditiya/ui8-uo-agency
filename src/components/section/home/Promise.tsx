@@ -22,20 +22,25 @@ export default function Promise() {
 				<button className="btn-blue">Let’s work together</button>
 			</header>
 			<p className="text-body flex-1 text-black-50">
-				Overcoming expectations is our mission. We’re here to follow
-				your vision and extend it into one consistent product. You got
-				all according to our agreement, and some more.
+				We offer tailored solutions that match your unique requirements,
+				whether it&apos;s a stunning website design, robust e-commerce
+				functionality, or seamless mobile app development. Our
+				professionals work closely with you to ensure our delivery
+				aligns with your needs, timeline, and budget.
 				<br />
 				<br />
-				The process based on a customer-centric approach. Nowadays brand
-				communication should be something that people really want to be
-				involved in. Understanding and vibing your audience is what
-				we’re here for.
+				With a customer-centric approach, we exceed expectations in
+				every project. Combining creative flair with technical
+				expertise, we deliver solutions that make a lasting impact on
+				your audience. From user-friendly interfaces to optimized
+				performance, we drive your business forward.
 				<br />
 				<br />
-				It may be not easy and time-consuming, but we don’t look for
-				short ways. We’re lordly of our mission and it’s this attitude
-				that defines us.
+				We prioritize clear communication, transparency, and
+				collaboration. Throughout the process, we keep you involved,
+				providing updates and seeking your feedback. Trust our team to
+				deliver exceptional results, meeting all your digital needs
+				efficiently and effectively.
 			</p>
 		</motion.section>
 	)

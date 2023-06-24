@@ -10,20 +10,20 @@ type OurServices = {
 
 const ourServices: OurServices[] = [
 	{
-		name: "UIUX Design",
-		desc: "Lörem ipsum metavalens krisväska. Läsade infras. Uling vipp och gagyrtad. Donde beföskade polyamori är.",
+		name: "UI/UX Design",
+		desc: "We create captivating interfaces that enhance digital experiences, combining artistic creativity with user-centric principles.",
 	},
 	{
 		name: "Branding",
-		desc: "Lörem ipsum metavalens krisväska. Läsade infras. Uling vipp och gagyrtad. Donde beföskade polyamori är.",
+		desc: "Our expertise in branding helps businesses establish a strong identity, from unique logos to compelling messaging that resonates with the target audience.",
 	},
 	{
 		name: "SAAS",
-		desc: "Lörem ipsum metavalens krisväska. Läsade infras. Uling vipp och gagyrtad. Donde beföskade polyamori är.",
+		desc: "We provide scalable and secure cloud-based solutions, empowering businesses to thrive in the digital landscape.",
 	},
 	{
 		name: "Development",
-		desc: "Lörem ipsum metavalens krisväska. Läsade infras. Uling vipp och gagyrtad. Donde beföskade polyamori är.",
+		desc: "From concept to implementation, our agile approach delivers customized software solutions that drive business growth with attention to detail and user experience.",
 	},
 ]
 
@@ -45,8 +45,9 @@ export default function Services() {
 						We provide the best service for you
 					</h2>
 					<p className="text-sm text-black-70">
-						Lörem ipsum metavalens krisväska. Läsade infras. Uling
-						vipp och gagyrtad. Donde beföskade polyamori är.
+						We provide the best service for you, tailored to meet
+						your unique needs and exceed your expectations, ensuring
+						your utmost satisfaction.
 					</p>
 				</div>
 				<button className="btn-blue">Request a quote</button>

@@ -20,17 +20,17 @@ export default function Passion() {
 				<p className="text-body flex-1 text-black-50">
 					Overcoming expectations is our mission. We’re here to follow
 					your vision and extend it into one consistent product. You
-					got all according to our agreement, and some more.
+					got it all according to our agreement, and some more.
 					<br />
 					<br />
-					The process based on a customer-centric approach. Nowadays
-					brand communication should be something that people really
-					want to be involved in. Understanding and vibing your
-					audience is what we’re here for.
+					The process is based on a customer-centric approach.
+					Nowadays, brand communication should be something that
+					people really want to be involved in. Understanding and
+					vivifying your audience is what we’re here for.
 					<br />
 					<br />
-					It may be not easy and time-consuming, but we don’t look for
-					short ways. We’re lordly of our mission and it’s this
+					It may not be easy and time-consuming, but we don’t look for
+					shortcuts. We’re proud of our mission, and it’s this
 					attitude that defines us.
 				</p>
 			</div>

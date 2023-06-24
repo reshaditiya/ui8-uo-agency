@@ -26,9 +26,9 @@ export default function Hero() {
 							delay: 0.2,
 						}}
 					>
-						Lörem ipsum metavalens krisväska. Läsade infras. Uling
-						vipp och gagyrtad. Donde beföskade polyamori är lavis.
-						Prelasa esm, kropp sytes.
+						Delivering digital excellence, exceeding industry
+						standards. Seamless user experiences, cutting-edge
+						features. Partner with us for unparalleled impact.
 					</motion.p>
 				</div>
 				<motion.div

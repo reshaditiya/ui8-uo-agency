@@ -19,15 +19,18 @@ export default function Principle() {
 			<div className="flex flex-col gap-[1rem] md:flex-1 md:gap-[2rem]">
 				<h2 className="text-h2">Simplicity</h2>
 				<p className="text-body text-black-50">
-					Overcoming expectations is our mission. We’re here to follow
-					your vision and extend it into one consistent product. You
-					got all according to our agreement, and some more.
+					Our digital agency prioritizes simplicity, designing clean
+					and intuitive interfaces that captivate in today&apos;s
+					fast-paced digital landscape. With a focus on essential
+					elements and clutter-free layouts, we create visually
+					appealing and highly functional experiences.
 					<br />
 					<br />
-					The process based on a customer-centric approach. Nowadays
-					brand communication should be something that people really
-					want to be involved in. Understanding and vibing your
-					audience is what we’re here for.
+					Simplicity goes beyond aesthetics—it&apos;s about effortless
+					interaction. We streamline processes and optimize
+					navigation, empowering users to engage seamlessly. Trust us
+					to harness the power of simplicity and transform your online
+					presence.
 				</p>
 			</div>
 			<figure className="relative h-[26.94rem] md:h-[42.19rem] md:flex-1">

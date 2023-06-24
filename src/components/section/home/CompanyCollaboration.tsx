@@ -31,9 +31,7 @@ export default function CompanyCollaboration() {
 		>
 			<p className="text-body px-[1.5rem] text-center font-semibold text-black-50">
 				We collaborate with{" "}
-				<span className="text-blue-100">
-					250+ leading companies-logo
-				</span>
+				<span className="text-blue-100">250+ leading companies</span>
 			</p>
 
 			{/* companies logo */}

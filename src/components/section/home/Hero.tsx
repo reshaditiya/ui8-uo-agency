@@ -57,9 +57,9 @@ export default function Hero() {
 						delay: 0.2,
 					}}
 				>
-					Lörem ipsum metavalens krisväska. Läsade infras. Uling vipp
-					och gagyrtad. Donde beföskade polyamori är lavis. Prelasa
-					esm, kropp sytes.
+					We are a digital agency that will save your life, ensuring
+					your success in the digital world with our innovative
+					strategies and unparalleled expertise.
 				</motion.span>
 			</div>
 			<motion.figure
