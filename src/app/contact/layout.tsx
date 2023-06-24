@@ -4,6 +4,8 @@ import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { useReducer } from "react"
 import { contactDataContext } from "@/src/app/utils/contexts"
+import { motion, AnimatePresence } from "framer-motion"
+import { defaultAnimation } from "../utils/animation"
 
 type ImageLayout = {
 	[key: string]: string
@@ -61,19 +63,12 @@ function reducerContactData(
 	}
 }
 
-function validateEmail(email: string) {
-	if (!email) return false
-	const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-	return regex.test(String(email).toLowerCase())
-}
-
 export default function ContactLayout({
 	children,
 }: {
 	children: React.ReactNode
 }) {
-	const pathname =
-		usePathname().replaceAll("/", "").replace("contact", "") || "need"
+	const pathname = usePathname().replaceAll("/", "").replace("contact", "")
 	const imageSrc = imageLayout[pathname]
 	const [contactData, dispatchContactData] = useReducer(
 		reducerContactData,
@@ -89,7 +84,17 @@ export default function ContactLayout({
 						setter: dispatchContactData,
 					}}
 				>
-					{children}
+					<AnimatePresence mode="wait">
+						<motion.section
+							key="contact"
+							variants={defaultAnimation}
+							initial="initial"
+							animate="animate"
+							exit="exit"
+						>
+							{children}
+						</motion.section>
+					</AnimatePresence>
 				</contactDataContext.Provider>
 			</section>
 			<figure className="relative hidden flex-1 md:block">
